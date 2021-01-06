@@ -4,7 +4,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import performer from "./performer";
 import performance from "./performance";
 
-// TODO: Add performance dates array -- add in separate schema and import??
+// TODO: Get GoogleMaps API keys, add to .env and install Sanity Google Maps plugin
 
 export default {
     name: "event",
@@ -30,11 +30,12 @@ export default {
         {
             name: "venueAddress",
             title: "Venue Address",
-            description:
-                "This is a place holder for the GoogleMaps input via plugin",
-            type: "string",
+            description: "Enter the venue address",
+            type: "geopoint",
         },
         {
+            // Possible feature: conditional display of this (and other?) fields based on a "Online event" Boolean field.
+            //  Examples: https://github.com/sanity-io/sanity/issues/1224     https://github.com/bjornwang/sanity-conditional-fields
             name: "youTubeURL",
             title: "YouTube URL",
             description: "Enter the YouTube link if applicable",
