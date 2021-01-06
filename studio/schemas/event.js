@@ -1,6 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
+import performer from "./performer";
+import performance from "./performance";
+
+// TODO: Add performance dates array -- add in separate schema and import??
 
 export default {
     name: "event",
@@ -17,68 +21,7 @@ export default {
             title: "Tagline",
             type: "string",
         },
-        {
-            name: "performances",
-            title: "Performances",
-            type: "array",
-            of: [
-                {
-                    name: "dateTime",
-                    title: "Performance date",
-                    type: "datetime",
-                    options: {
-                        dateFormat: "MMMM Do, YYYY",
-                        timeFormat: "h:mma",
-                    },
-                },
-                // {
-                //     preview: {
-                //         select: {
-                //             title: "dateTime",
-                //         },
-                //         prepare(selection) {
-                //             console.log(selection);
-                //             const date = new Date(selection.title);
-                //             const day = date.getDate();
-                //             const year = date.getFullYear();
-                //             const months = [
-                //                 "January",
-                //                 "February",
-                //                 "March",
-                //                 "April",
-                //                 "May",
-                //                 "June",
-                //                 "July",
-                //                 "August",
-                //                 "September",
-                //                 "October",
-                //                 "November",
-                //                 "December",
-                //             ];
-                //             const monthIndex = date.getMonth();
-                //             const monthName = months[monthIndex];
-                //             const fullDate = `${monthName} ${day}, ${year}`;
-                //             const hour =
-                //                 date.getHours() > 12
-                //                     ? `${date.getHours() - 12}`
-                //                     : `${date.getHours()}`;
-                //             const minute = date.getMinutes();
-                //             const time = `${hour}:${minute}${
-                //                 date.getHours() > 12 ? "pm" : "am"
-                //             }`;
-                //             return {
-                //                 title: fullDate,
-                //                 subtitle: time,
-                //                 media: <FontAwesomeIcon icon={faCalendar} />,
-                //             };
-                //         },
-                //     },
-                // },
-            ],
-            options: {
-                sortable: false,
-            },
-        },
+
         {
             name: "venue",
             title: "Venue",
@@ -90,6 +33,21 @@ export default {
             description:
                 "This is a place holder for the GoogleMaps input via plugin",
             type: "string",
+        },
+        {
+            name: "youTubeURL",
+            title: "YouTube URL",
+            description: "Enter the YouTube link if applicable",
+            type: "url",
+        },
+        {
+            name: "performances",
+            title: "Performances",
+            type: "array",
+            of: [{ type: "performance" }],
+            options: {
+                sortable: false,
+            },
         },
         {
             name: "ticketsLink",
@@ -112,34 +70,9 @@ export default {
         },
         {
             name: "performers",
-            title: "The Performers",
+            title: "Performers",
             type: "array",
-            of: [
-                {
-                    name: "name",
-                    title: "Name",
-                    type: "string",
-                },
-                {
-                    name: "instrument",
-                    title: "Instrument or voice type",
-                    type: "string",
-                },
-                {
-                    name: "photo",
-                    title: "Headshot",
-                    type: "image",
-                    options: {
-                        hotspot: "true",
-                    },
-                },
-                // {
-                //     name: "bio",
-                //     title: "Bio",
-                //     type: "array",
-                //     of: [{ type: "block" }],
-                // },
-            ],
+            of: [{ type: "performer" }],
         },
     ],
 };
