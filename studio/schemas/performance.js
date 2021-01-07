@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { FaCalendar } from "react-icons/fa";
 
 export default {
     name: "performance",
@@ -61,7 +60,7 @@ export default {
             return {
                 title: fullDate,
                 subtitle: time,
-                media: <FontAwesomeIcon icon={faCalendarAlt} />,
+                media: <FaCalendar />,
             };
         },
     },
