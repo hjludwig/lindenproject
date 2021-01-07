@@ -1,10 +1,4 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import performer from "./performer";
-import performance from "./performance";
-
-// TODO: Get GoogleMaps API keys, add to .env and install Sanity Google Maps plugin
+// URGENT: Google Maps API keys exposed in config file -- added config to gitignore for now
 
 export default {
     name: "event",
@@ -61,6 +55,12 @@ export default {
             title: "Description",
             type: "array",
             of: [{ type: "block" }],
+        },
+        {
+            name: "program",
+            title: "Program",
+            description: "Upload the concert program",
+            type: "file",
         },
         {
             name: "image",
