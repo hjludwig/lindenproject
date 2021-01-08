@@ -1,5 +1,7 @@
 import React from "react";
 import { FaCalendar } from "react-icons/fa";
+import formatDate from "../utils/formatDate";
+import formatTime from "../utils/formatTime";
 
 export default {
     name: "performance",
@@ -22,41 +24,10 @@ export default {
             title: "dateTime",
         },
         prepare(selection) {
-            console.log(selection);
-            const addZero = i => {
-                if (i < 10) {
-                    i = "0" + i;
-                }
-                return i;
-            };
             const date = new Date(selection.title);
-            const day = date.getDate();
-            const year = date.getFullYear();
-            const months = [
-                "January",
-                "February",
-                "March",
-                "April",
-                "May",
-                "June",
-                "July",
-                "August",
-                "September",
-                "October",
-                "November",
-                "December",
-            ];
-            const monthIndex = date.getMonth();
-            const monthName = months[monthIndex];
-            const fullDate = `${monthName} ${day}, ${year}`;
-            const hour =
-                date.getHours() > 12
-                    ? `${date.getHours() - 12}`
-                    : `${date.getHours()}`;
-            const minute = addZero(date.getMinutes());
-            const time = `${hour}:${minute}${
-                date.getHours() > 12 ? "pm" : "am"
-            }`;
+            const fullDate = formatDate(date);
+            const time = formatTime(date);
+
             return {
                 title: fullDate,
                 subtitle: time,

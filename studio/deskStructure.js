@@ -1,5 +1,10 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { FaUser, FaCalendarAlt, FaInfoCircle } from "react-icons/fa";
+import {
+    FaUser,
+    FaCalendarAlt,
+    FaInfoCircle,
+    FaDollarSign,
+} from "react-icons/fa";
 
 export default () =>
     S.list()
@@ -24,4 +29,9 @@ export default () =>
                 .icon(FaUser)
                 .schemaType("person")
                 .child(S.documentTypeList("person").title("Our Team")),
+            S.listItem()
+                .title("Donors")
+                .icon(FaDollarSign)
+                .schemaType("donor")
+                .child(S.documentTypeList("donor").title("Donors")),
         ]);
