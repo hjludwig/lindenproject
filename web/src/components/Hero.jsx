@@ -2,26 +2,16 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import NavBar from "./NavBar";
 
-const HeaderWrapper = styled.div`
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: white;
-  z-index: 9;
-`;
 const StyledHeader = styled.header`
+  background: grey;
+  height: 100vh;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 95%;
-  margin: 0 auto;
-  /* padding: 0 5px; */
+  flex-direction: column;
+  justify-content: center;
 `;
 const Logo = styled.div`
-  width: 120px;
+  max-width: 200px;
 `;
 
 const Header = () => {
@@ -30,6 +20,7 @@ const Header = () => {
       org: allSanityOrganization {
         nodes {
           name
+          tagline
           logo {
             asset {
               fluid {
@@ -41,20 +32,23 @@ const Header = () => {
       }
     }
   `);
-  const { name, logo } = data.org.nodes[0];
+  const { name, tagline, logo } = data.org.nodes[0];
 
   return (
-    <HeaderWrapper>
-      <StyledHeader>
+    <StyledHeader>
+      <div className="container">
         <Logo>
           <Link to="/">
             <title>{name}</title>
             <Img fluid={logo.asset.fluid} alt={name} />
           </Link>
         </Logo>
-        <NavBar />
-      </StyledHeader>
-    </HeaderWrapper>
+        <h2>{tagline}</h2>
+        <button>
+          <Link to="/about">Learn More</Link>
+        </button>
+      </div>
+    </StyledHeader>
   );
 };
 

@@ -22,6 +22,12 @@ export default {
             },
         },
         {
+            name: "links",
+            title: "Links",
+            type: "array",
+            of: [{ type: "link" }],
+        },
+        {
             name: "bio",
             title: "Bio",
             type: "array",

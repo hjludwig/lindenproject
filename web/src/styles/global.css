@@ -9,6 +9,7 @@
 
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
+- Variables
 - Grid
 - Base Styles
 - Typography
@@ -23,6 +24,15 @@
 - Clearing
 - Media Queries
 */
+
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+:root {
+  --dark-grey: #27272a;
+  --mid-grey: #71717a;
+  --light-grey: #e4e4e7;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

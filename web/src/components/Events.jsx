@@ -12,6 +12,7 @@ const Events = () => {
     }
   `);
   const events = data.allSanityEvent.nodes;
+  console.log(events);
   return (
     <section id="concerts">
       {events.map(event => {
