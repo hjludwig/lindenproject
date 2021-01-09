@@ -28,16 +28,22 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-sanity',
+      resolve: "gatsby-source-sanity",
       options: {
-        projectId: 'vlx0xi6k',
-        dataset: 'production',
+        projectId: "vlx0xi6k",
+        dataset: "production",
 
         token: process.env.MY_SANITY_TOKEN,
-      }
+      },
+    },
+    {
+      resolve: "gatsby-plugin-anchor-links",
+      options: {
+        offset: -100,
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

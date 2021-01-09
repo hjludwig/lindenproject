@@ -11,14 +11,13 @@ const Events = () => {
       }
     }
   `);
-  console.log(data);
   const events = data.allSanityEvent.nodes;
   return (
-    <div>
+    <section id="concerts">
       {events.map(event => {
         return <h1>{event.title}</h1>;
       })}
-    </div>
+    </section>
   );
 };
 

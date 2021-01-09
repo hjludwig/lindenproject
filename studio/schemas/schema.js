@@ -9,6 +9,7 @@ import performance from "./performance";
 import organization from "./organization";
 import person from "./person";
 import donor from "./donor";
+import donation from "./donation";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -24,5 +25,6 @@ export default createSchema({
         organization,
         person,
         donor,
+        donation,
     ]),
 });

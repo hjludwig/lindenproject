@@ -1,7 +1,3 @@
-import { FaDollarSign } from "react-icons/fa";
-import React from "react";
-import formatDate from "../utils/formatDate";
-
 export default {
     name: "donor",
     title: "Donor",
@@ -44,42 +40,7 @@ export default {
             name: "donations",
             title: "Donations",
             type: "array",
-            of: [
-                {
-                    title: "Donation",
-                    type: "document",
-                    fields: [
-                        {
-                            name: "amount",
-                            title: "Amount",
-                            type: "number",
-                            description: "In dollars",
-                        },
-                        {
-                            name: "date",
-                            title: "Date",
-                            description:
-                                "Enter the date the donation was recieved",
-                            type: "date",
-                        },
-                    ],
-                    preview: {
-                        select: {
-                            title: "amount",
-                            subtitle: "date",
-                        },
-                        prepare({ title, subtitle }) {
-                            const dollars = `$${title}.00`;
-                            const date = formatDate(subtitle);
-                            return {
-                                title: dollars,
-                                subtitle: date,
-                                media: <FaDollarSign />,
-                            };
-                        },
-                    },
-                },
-            ],
+            of: [{ type: "donation" }],
             options: { sortable: false },
         },
     ],
