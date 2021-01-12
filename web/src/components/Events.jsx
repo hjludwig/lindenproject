@@ -1,5 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
+import Img from "gatsby-image";
+import Event from "./Event";
 
 const Events = () => {
   const data = useStaticQuery(graphql`
@@ -7,16 +9,32 @@ const Events = () => {
       allSanityEvent {
         nodes {
           title
+          slug {
+            current
+          }
+          image {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          ticketsLink
+          venue
+          tagline
+          id
+          performances {
+            dateTime
+          }
         }
       }
     }
   `);
   const events = data.allSanityEvent.nodes;
-  console.log(events);
   return (
-    <section id="concerts">
+    <section id="concerts" className="container">
       {events.map(event => {
-        return <h1>{event.title}</h1>;
+        return <Event event={event} />;
       })}
     </section>
   );

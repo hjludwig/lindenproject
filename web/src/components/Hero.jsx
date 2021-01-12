@@ -2,9 +2,12 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import background from "../../static/images/hero-bg-temp.jpg";
 
 const StyledHeader = styled.header`
   background: grey;
+  background-image: url(${background});
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,9 +47,14 @@ const Header = () => {
           </Link>
         </Logo>
         <h2>{tagline}</h2>
-        <button>
-          <Link to="/about">Learn More</Link>
-        </button>
+        <Link className="button" to="/about">
+          Learn More
+        </Link>
+        <AnchorLink
+          className="button primary"
+          to="/#concerts"
+          title="Concerts"
+        />
       </div>
     </StyledHeader>
   );

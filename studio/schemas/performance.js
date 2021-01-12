@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCalendar } from "react-icons/fa";
-import formatDate from "../utils/formatDate";
-import formatTime from "../utils/formatTime";
+import formatDate from "../../utils/formatDate";
+import formatTime from "../../utils/formatTime";
 
 export default {
     name: "performance",

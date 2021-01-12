@@ -1,5 +1,5 @@
 import { FaDollarSign } from "react-icons/fa";
-import formatDate from "../utils/formatDate";
+import formatDate from "../../utils/formatDate";
 import React from "react";
 
 export default {

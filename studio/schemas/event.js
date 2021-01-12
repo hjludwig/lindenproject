@@ -11,6 +11,14 @@ export default {
             type: "string",
         },
         {
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: {
+                source: "title",
+            },
+        },
+        {
             name: "tagline",
             title: "Tagline",
             type: "string",

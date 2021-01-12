@@ -39,7 +39,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
@@ -59,8 +59,8 @@
   }
 }
 
-/* For devices larger than 550px */
-@media (min-width: 550px) {
+/* For devices larger than 750px  --N.B. Changed from 550px */
+@media (min-width: 750px) {
   .container {
     width: 80%;
   }
