@@ -73,9 +73,21 @@ export default {
         {
             name: "image",
             title: "Image",
+            description:
+                "A large image for the concert gallery and event page banner",
+            type: "image",
+            options: {
+                hotspot: true,
+            },
+        },
+        {
+            name: "poster",
+            title: "Concert Poster",
             description: "Upload the concert poster",
             type: "image",
-            hotspot: true,
+            options: {
+                hotspot: true,
+            },
         },
         {
             name: "performers",

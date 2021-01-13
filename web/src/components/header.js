@@ -11,6 +11,7 @@ const HeaderWrapper = styled.div`
   left: 0;
   background: white;
   z-index: 9;
+  box-shadow: 0 0 10px 0 var(--grey-300);
 `;
 const StyledHeader = styled.header`
   display: flex;

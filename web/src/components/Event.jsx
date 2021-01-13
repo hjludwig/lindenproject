@@ -3,10 +3,20 @@ import Img from "gatsby-image";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import formatDate from "../../../utils/formatDate";
-const StyledEvent = styled.section`
+const StyledEvent = styled.div`
   display: flex;
-  .media .gatsby-image-wrapper img {
-    object-fit: cover;
+  margin-bottom: 8rem;
+  box-shadow: 0 0 5px var(--grey-300);
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .details {
+    order: -1;
+  }
+  .media {
+    border-right: 1px solid var(--grey-200);
   }
   @media screen and (max-width: 750px) {
     display: block;
@@ -29,12 +39,12 @@ const Event = ({ event }) => {
       <div className="media four columns">
         <Img fluid={image.asset.fluid} />
       </div>
-      <div className="eight columns">
-        <hgroup>
+      <div className="text eight columns">
+        <header>
           <h1>{title}</h1>
           <h2>{tagline}</h2>
-        </hgroup>
-        <div>
+        </header>
+        <div className="details">
           <span>{formatDate(performances[0].dateTime)}</span>
           <span className="separator"> | </span>
           <span>{venue}</span>

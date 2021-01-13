@@ -1,7 +1,16 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
-import Img from "gatsby-image";
 import Event from "./Event";
+
+import styled from "styled-components";
+
+const StyledEvents = styled.section`
+  padding: 20rem 0;
+  > h1 {
+    text-align: center;
+    margin-bottom: 10rem;
+  }
+`;
 
 const Events = () => {
   const data = useStaticQuery(graphql`
@@ -32,11 +41,12 @@ const Events = () => {
   `);
   const events = data.allSanityEvent.nodes;
   return (
-    <section id="concerts" className="container">
+    <StyledEvents id="concerts" className="container">
+      <h1>Concerts</h1>
       {events.map(event => {
         return <Event event={event} />;
       })}
-    </section>
+    </StyledEvents>
   );
 };
 
