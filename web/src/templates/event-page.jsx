@@ -41,7 +41,22 @@ export const query = graphql`
           url
         }
       }
-      performers: _rawPerformers(resolveReferences: { maxDepth: 10 })
+      performers {
+        name
+        instrument
+        _rawBio
+        links {
+          type
+          url
+        }
+        photo {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
     }
   }
 `;

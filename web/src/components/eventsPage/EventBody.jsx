@@ -45,6 +45,7 @@ const EventBody = ({ event }) => {
           </a>
         </div>
         <div className="performers">
+          <h3>The Performers</h3>
           {performers.map(performer => {
             return <Performer performer={performer} />;
           })}
