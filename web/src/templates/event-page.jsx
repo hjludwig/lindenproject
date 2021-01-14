@@ -36,6 +36,12 @@ export const query = graphql`
         lat
         lng
       }
+      program {
+        asset {
+          url
+        }
+      }
+      performers: _rawPerformers(resolveReferences: { maxDepth: 10 })
     }
   }
 `;

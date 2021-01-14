@@ -18,7 +18,7 @@ export default {
             title: "Headshot",
             type: "image",
             options: {
-                hotspot: "true",
+                hotspot: true,
             },
         },
         {
