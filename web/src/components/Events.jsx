@@ -11,6 +11,7 @@ const StyledEvents = styled.section`
     margin-bottom: 10rem;
   }
 `;
+// TODO: order by date and filter by season
 
 const Events = () => {
   const data = useStaticQuery(graphql`

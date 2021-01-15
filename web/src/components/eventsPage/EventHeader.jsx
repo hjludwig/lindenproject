@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Img from "gatsby-image";
+import formatDate from "../../../../utils/formatDate";
+import formatTime from "../../../../utils/formatTime";
 
 const Banner = styled.div`
   margin-top: 12rem;
@@ -28,8 +30,21 @@ const Header = styled.header`
   color: white;
 `;
 
+// TODO : Add performance date and time
+
 const EventHeader = ({ event }) => {
-  const { image, title, tagline, venue, youTubeURL, ticketsLink } = event;
+  const {
+    image,
+    title,
+    tagline,
+    venue,
+    youTubeURL,
+    ticketsLink,
+    performances,
+  } = event;
+  const date = formatDate(performances[0].dateTime);
+  const time = formatTime(performances[0].dateTime);
+
   return (
     <>
       <Banner>
@@ -38,7 +53,12 @@ const EventHeader = ({ event }) => {
       <Header>
         <h1>{title}</h1>
         <h2>{tagline}</h2>
-        <h3>{venue}</h3>
+        {/* TODO Create formatting allowing for more than one performance date */}
+        <h3>
+          {time} {date}
+          <span className="separator"> | </span>
+          {venue}
+        </h3>
 
         <a className="button button-primary" href={ticketsLink} target="blank">
           Tickets

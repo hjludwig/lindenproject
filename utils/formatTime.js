@@ -1,4 +1,5 @@
-export default function (date) {
+export default function (num) {
+    const date = new Date(num);
     const addZero = i => {
         if (i < 10) {
             i = "0" + i;

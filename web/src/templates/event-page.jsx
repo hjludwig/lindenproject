@@ -6,6 +6,7 @@ import EventBody from "../components/eventsPage/EventBody";
 
 const EventPage = ({ data }) => {
   const event = data.event;
+  console.log(event.performances);
   return (
     <Layout>
       <EventHeader event={event} />
@@ -24,6 +25,9 @@ export const query = graphql`
       ticketsLink
       youTubeURL
       _rawDescription
+      performances {
+        dateTime
+      }
       image {
         asset {
           fluid {

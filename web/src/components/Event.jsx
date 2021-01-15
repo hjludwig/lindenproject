@@ -45,6 +45,7 @@ const Event = ({ event }) => {
           <h2>{tagline}</h2>
         </header>
         <div className="details">
+          {/* TODO Create formatting allowing for more than one performance date */}
           <span>{formatDate(performances[0].dateTime)}</span>
           <span className="separator"> | </span>
           <span>{venue}</span>

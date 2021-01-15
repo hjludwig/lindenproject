@@ -26,7 +26,7 @@ const Main = styled.div`
     max-width: 80ch;
   }
 `;
-
+// TODO: Add event date and time? and venue address
 const EventBody = ({ event }) => {
   const { _rawDescription, venue, program, performers } = event;
   console.log(performers);
