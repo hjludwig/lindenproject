@@ -33,7 +33,7 @@ export default {
             name: "venueAddress",
             title: "Venue Address",
             description: "Enter the venue address",
-            type: "geopoint",
+            type: "string",
         },
         {
             // Possible feature: conditional display of this (and other?) fields based on a "Online event" Boolean field.

@@ -36,10 +36,7 @@ export const query = graphql`
         }
       }
       venue
-      venueAddress {
-        lat
-        lng
-      }
+      venueAddress
       program {
         asset {
           url
