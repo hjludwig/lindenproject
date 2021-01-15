@@ -42,30 +42,40 @@ const EventHeader = ({ event }) => {
     ticketsLink,
     performances,
   } = event;
-  const date = formatDate(performances[0].dateTime);
-  const time = formatTime(performances[0].dateTime);
 
   return (
     <>
-      <Banner>
-        <Img fluid={image.asset.fluid} />
-      </Banner>
+      <Banner>{image && <Img fluid={image.asset.fluid} />}</Banner>
       <Header>
         <h1>{title}</h1>
         <h2>{tagline}</h2>
         {/* TODO Create formatting allowing for more than one performance date */}
-        <h3>
-          {time} {date}
-          <span className="separator"> | </span>
-          {venue}
-        </h3>
-
-        <a className="button button-primary" href={ticketsLink} target="blank">
-          Tickets
-        </a>
-        <a href={youTubeURL} className="button">
-          Watch Now
-        </a>
+        {(performances.length !== 0 || venue) && (
+          <h3>
+            {performances[0] && (
+              <span>
+                {formatTime(performances[0].dateTime)}{" "}
+                {formatDate(performances[0].dateTime)}
+              </span>
+            )}
+            <span className="separator"> | </span>
+            {venue}
+          </h3>
+        )}
+        {ticketsLink && (
+          <a
+            className="button button-primary"
+            href={ticketsLink}
+            target="blank"
+          >
+            Tickets
+          </a>
+        )}
+        {youTubeURL && (
+          <a href={youTubeURL} className="button" target="blank">
+            Watch Now
+          </a>
+        )}
       </Header>
     </>
   );

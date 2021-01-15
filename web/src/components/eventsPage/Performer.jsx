@@ -10,10 +10,9 @@ const Headshot = styled.div`
 `;
 
 const Performer = ({ performer }) => {
-  const { name, _key, instrument, photo, _rawBio, links } = performer;
-  console.log(links);
+  const { name, instrument, photo, _rawBio, links } = performer;
   return (
-    <div className="performer" key={_key}>
+    <div className="performer">
       <h4 className="u-cf">
         {name}
         <span className="separator"> | </span>
@@ -22,7 +21,7 @@ const Performer = ({ performer }) => {
       <ul className="links">
         {links.map(link => {
           return (
-            <li>
+            <li key={link._key}>
               <a href={link.url}>{link.type[0]}</a>
             </li>
           );

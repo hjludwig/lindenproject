@@ -6,7 +6,6 @@ import EventBody from "../components/eventsPage/EventBody";
 
 const EventPage = ({ data }) => {
   const event = data.event;
-  console.log(event.performances);
   return (
     <Layout>
       <EventHeader event={event} />
@@ -27,6 +26,7 @@ export const query = graphql`
       _rawDescription
       performances {
         dateTime
+        _key
       }
       image {
         asset {
@@ -46,9 +46,11 @@ export const query = graphql`
         name
         instrument
         _rawBio
+        _key
         links {
           type
           url
+          _key
         }
         photo {
           asset {

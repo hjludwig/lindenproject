@@ -41,45 +41,56 @@ const EventBody = ({ event }) => {
     performers,
     venueAddress,
     performances,
+    ticketsLink,
   } = event;
   return (
     <Main className="wrapper">
       <div className="container">
-        <div className="description">
-          <BlockContent blocks={_rawDescription} serializers={serializers} />
-        </div>
-        <Info>
-          <h4>Details</h4>
-          <div className="venue">
-            <h5>Venue</h5>
-            <p>{venue}</p>
-            <p>{venueAddress}</p>
-            <MapButton address={venueAddress} />
+        {_rawDescription && (
+          <div className="description">
+            <BlockContent blocks={_rawDescription} serializers={serializers} />
           </div>
-          <div className="performances">
-            <h5>Performances</h5>
-            <p>
-              {performances.map(performance => {
-                return (
-                  <p>
-                    {formatTime(performance.dateTime)}{" "}
-                    {formatDate(performance.dateTime)}
-                  </p>
-                );
-              })}
-            </p>
+        )}
+        {venue && venueAddress && performances.length !== 0 && program && (
+          <Info>
+            <h4>Details</h4>
+            <div className="venue">
+              <h5>Venue</h5>
+              <p>{venue}</p>
+              <p>{venueAddress}</p>
+              <MapButton address={venueAddress} />
+            </div>
+            <div className="performances">
+              <h5>Performances</h5>
+              <ul>
+                {performances.map(performance => {
+                  return (
+                    <li key={performance._key}>
+                      {formatTime(performance.dateTime)}{" "}
+                      {formatDate(performance.dateTime)}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <a href={ticketsLink} className="button button-primary">
+              Tickets
+            </a>
+            {program && (
+              <a href={`${program.asset.url}?dl=`} className="button">
+                Download the Program
+              </a>
+            )}
+          </Info>
+        )}
+        {performers.length !== 0 && (
+          <div className="performers">
+            <h3>The Performers</h3>
+            {performers.map(performer => {
+              return <Performer key={performer._key} performer={performer} />;
+            })}
           </div>
-          <a className="button button-primary">Tickets</a>
-          <a href={`${program.asset.url}?dl=`} className="button">
-            Download the Program
-          </a>
-        </Info>
-        <div className="performers">
-          <h3>The Performers</h3>
-          {performers.map(performer => {
-            return <Performer performer={performer} />;
-          })}
-        </div>
+        )}
       </div>
     </Main>
   );

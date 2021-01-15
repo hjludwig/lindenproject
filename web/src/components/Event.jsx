@@ -36,24 +36,33 @@ const Event = ({ event }) => {
   } = event;
   return (
     <StyledEvent className="row" key={id}>
-      <div className="media four columns">
-        <Img fluid={image.asset.fluid} />
-      </div>
+      {image && (
+        <div className="media four columns">
+          <Img fluid={image.asset.fluid} />
+        </div>
+      )}
       <div className="text eight columns">
         <header>
           <h1>{title}</h1>
           <h2>{tagline}</h2>
         </header>
+
         <div className="details">
           {/* TODO Create formatting allowing for more than one performance date */}
-          <span>{formatDate(performances[0].dateTime)}</span>
-          <span className="separator"> | </span>
-          <span>{venue}</span>
+          {performances[0] && (
+            <>
+              <span>{formatDate(performances[0].dateTime)}</span>
+              <span className="separator"> | </span>
+            </>
+          )}
+          {venue && <span>{venue}</span>}
         </div>
         <div>
-          <a className="button button-primary" href={ticketsLink}>
-            Tickets
-          </a>
+          {ticketsLink && (
+            <a className="button button-primary" href={ticketsLink}>
+              Tickets
+            </a>
+          )}
           <Link className="button" to={slug.current}>
             More Info
           </Link>
