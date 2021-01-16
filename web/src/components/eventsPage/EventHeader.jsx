@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
+import YouTubeButton from "../YouTubeButton";
+import TicketsButton from "../TicketsButton";
 
 const Banner = styled.div`
   margin-top: 12rem;
@@ -28,6 +30,27 @@ const Header = styled.header`
   align-items: center;
   text-align: center;
   color: white;
+  h1 {
+    margin-bottom: 0;
+  }
+  h2:after {
+    content: "";
+    display: block;
+    margin: 3rem auto 2rem auto;
+    width: 5em;
+    border: 1px solid white;
+  }
+  @media (min-width: 550px) {
+    h1 {
+      font-size: 6rem;
+    }
+  }
+  .buttons {
+    display: flex;
+  }
+  .buttons a {
+    margin: 0 1rem;
+  }
 `;
 
 // TODO : Add performance date and time
@@ -62,20 +85,10 @@ const EventHeader = ({ event }) => {
             {venue}
           </h3>
         )}
-        {ticketsLink && (
-          <a
-            className="button button-primary"
-            href={ticketsLink}
-            target="blank"
-          >
-            Tickets
-          </a>
-        )}
-        {youTubeURL && (
-          <a href={youTubeURL} className="button" target="blank">
-            Watch Now
-          </a>
-        )}
+        <div className="buttons">
+          {ticketsLink && <TicketsButton url={ticketsLink} />}
+          {youTubeURL && <YouTubeButton url={youTubeURL} />}
+        </div>
       </Header>
     </>
   );

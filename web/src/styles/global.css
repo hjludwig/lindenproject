@@ -43,6 +43,10 @@
   --grey-700: #3f3f46;
   --grey-800: #27272a;
   --grey-900: #18181b;
+
+  --lp-light-green: #bfce4d;
+  --lp-green: #9ba837;
+  --lp-dark-green: #788322;
 }
 
 /* Grid
@@ -207,7 +211,7 @@ body {
   font-size: 1.8em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
+  font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   color: #222;
 }
@@ -227,12 +231,15 @@ h6 {
 h1 {
   font-size: 4rem;
   line-height: 1.2;
-  letter-spacing: -0.1rem;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 h2 {
   font-size: 3.6rem;
   line-height: 1.25;
-  letter-spacing: -0.1rem;
+  /* letter-spacing: -0.1rem; */
+  font-family: "Playfair Display", serif;
+  font-style: italic;
 }
 h3 {
   font-size: 3rem;
@@ -284,10 +291,10 @@ p {
 /* Links
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1eaedb;
+  color: var(--lp-green);
 }
 a:hover {
-  color: #0fa0ce;
+  color: var(--lp-dark-green);
 }
 
 /* Buttons
@@ -335,8 +342,8 @@ input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #fff;
-  background-color: #33c3f0;
-  border-color: #33c3f0;
+  background-color: var(--lp-green);
+  border-color: var(--lp-green);
 }
 .button.button-primary:hover,
 button.button-primary:hover,
@@ -349,8 +356,8 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #fff;
-  background-color: #1eaedb;
-  border-color: #1eaedb;
+  background-color: var(--lp-light-green);
+  border-color: var(--lp-light-green);
 }
 
 /* Forms
@@ -399,7 +406,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33c3f0;
+  border: 1px solid var(--lp-light-green);
   outline: 0;
 }
 label,

@@ -51,31 +51,43 @@ const EventBody = ({ event }) => {
             <BlockContent blocks={_rawDescription} serializers={serializers} />
           </div>
         )}
-        {venue && venueAddress && performances.length !== 0 && program && (
+        {(venue || venueAddress || performances.length !== 0 || program) && (
           <Info>
             <h4>Details</h4>
-            <div className="venue">
-              <h5>Venue</h5>
-              <p>{venue}</p>
-              <p>{venueAddress}</p>
-              <MapButton address={venueAddress} />
-            </div>
+            {(venue || venueAddress) && (
+              <div className="venue">
+                <h5>Venue</h5>
+                <p>{venue}</p>
+                {venueAddress && (
+                  <>
+                    <p>{venueAddress}</p>
+                    <MapButton address={venueAddress} />
+                  </>
+                )}
+              </div>
+            )}
             <div className="performances">
               <h5>Performances</h5>
-              <ul>
-                {performances.map(performance => {
-                  return (
-                    <li key={performance._key}>
-                      {formatTime(performance.dateTime)}{" "}
-                      {formatDate(performance.dateTime)}
-                    </li>
-                  );
-                })}
-              </ul>
+              {performances.length === 0 ? (
+                <p>Performance data and time TBA</p>
+              ) : (
+                <ul>
+                  {performances.map(performance => {
+                    return (
+                      <li key={performance._key}>
+                        {formatTime(performance.dateTime)}{" "}
+                        {formatDate(performance.dateTime)}
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
-            <a href={ticketsLink} className="button button-primary">
-              Tickets
-            </a>
+            {ticketsLink && (
+              <a href={ticketsLink} className="button button-primary">
+                Tickets
+              </a>
+            )}
             {program && (
               <a href={`${program.asset.url}?dl=`} className="button">
                 Download the Program
