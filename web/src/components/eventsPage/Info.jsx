@@ -3,7 +3,12 @@ import styled from "styled-components";
 // import MapButton from "./MapButton";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
-import { FaInfo, FaInfoCircle } from "react-icons/fa";
+import {
+  FaFileDownload,
+  FaInfo,
+  FaInfoCircle,
+  FaTicketAlt,
+} from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { Button } from "../Button";
 
@@ -95,6 +100,7 @@ const Info = ({ event }) => {
       <Buttons>
         {ticketsLink && (
           <Button as="a" href={ticketsLink} primary>
+            <FaTicketAlt />
             Tickets
           </Button>
         )}
