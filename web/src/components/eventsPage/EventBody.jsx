@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BlockContent from "@sanity/block-content-to-react";
 import Performer from "./Performer";
-import MapButton from "./MapButton";
-import formatDate from "../../../../utils/formatDate";
-import formatTime from "../../../../utils/formatTime";
+import Info from "./Info";
 
 const serializers = {
   types: {
@@ -23,16 +21,21 @@ const Main = styled.div`
   background: white;
   width: 80%;
   margin: 0 auto;
-  padding: 10rem 0;
+  padding: 12rem 0;
+
   .container {
     max-width: 80ch;
+    > div {
+      margin-bottom: 10rem;
+    }
+  }
+  .description p:first-of-type {
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1.4;
   }
 `;
-const Info = styled.div`
-  background: grey;
-  padding: 5rem;
-`;
-// TODO: Add event date and time? and venue address
+
 const EventBody = ({ event }) => {
   const {
     _rawDescription,
@@ -52,48 +55,7 @@ const EventBody = ({ event }) => {
           </div>
         )}
         {(venue || venueAddress || performances.length !== 0 || program) && (
-          <Info>
-            <h4>Details</h4>
-            {(venue || venueAddress) && (
-              <div className="venue">
-                <h5>Venue</h5>
-                <p>{venue}</p>
-                {venueAddress && (
-                  <>
-                    <p>{venueAddress}</p>
-                    <MapButton address={venueAddress} />
-                  </>
-                )}
-              </div>
-            )}
-            <div className="performances">
-              <h5>Performances</h5>
-              {performances.length === 0 ? (
-                <p>Performance data and time TBA</p>
-              ) : (
-                <ul>
-                  {performances.map(performance => {
-                    return (
-                      <li key={performance._key}>
-                        {formatTime(performance.dateTime)}{" "}
-                        {formatDate(performance.dateTime)}
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
-            </div>
-            {ticketsLink && (
-              <a href={ticketsLink} className="button button-primary">
-                Tickets
-              </a>
-            )}
-            {program && (
-              <a href={`${program.asset.url}?dl=`} className="button">
-                Download the Program
-              </a>
-            )}
-          </Info>
+          <Info event={event} />
         )}
         {performers.length !== 0 && (
           <div className="performers">

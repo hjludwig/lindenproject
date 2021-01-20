@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
-import YouTubeButton from "../YouTubeButton";
-import TicketsButton from "../TicketsButton";
+import { Button } from "../Button";
+import { FaTicketAlt, FaYoutube } from "react-icons/fa";
 
 const Banner = styled.div`
   margin-top: 12rem;
@@ -86,8 +86,18 @@ const EventHeader = ({ event }) => {
           </h3>
         )}
         <div className="buttons">
-          {ticketsLink && <TicketsButton url={ticketsLink} />}
-          {youTubeURL && <YouTubeButton url={youTubeURL} />}
+          {ticketsLink && (
+            <Button primary as="a" href={ticketsLink} target="_blank">
+              <FaTicketAlt />
+              Tickets
+            </Button>
+          )}
+          {youTubeURL && (
+            <Button as="a" href={youTubeURL} target="_blank">
+              <FaYoutube />
+              Watch Now
+            </Button>
+          )}
         </div>
       </Header>
     </>
