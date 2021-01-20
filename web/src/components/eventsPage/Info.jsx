@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import MapButton from "./MapButton";
+// import MapButton from "./MapButton";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
-import { FaInfoCircle } from "react-icons/fa";
+import { FaInfo, FaInfoCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import { Button } from "../Button";
 
 const InfoStyles = styled.div`
   background: var(--grey-100);
@@ -23,7 +24,7 @@ const InfoStyles = styled.div`
     border-top: 1px solid var(--grey-300);
     padding: 3rem 0;
   }
-  .react-icon {
+  .info-icon {
     /* width: 100%; */
     color: var(--grey-300);
     color: var(--lp-green);
@@ -42,11 +43,14 @@ const Buttons = styled.div`
   justify-content: center;
 `;
 
-const InfoIcon = () => {
+const MapButton = ({ address }) => {
+  const url = `https://www.google.com/maps/search/?api=1&query=${encodeURI(
+    address
+  )}`;
   return (
-    <IconContext.Provider value={{ className: "react-icon" }}>
-      <FaInfoCircle />
-    </IconContext.Provider>
+    <Button as="a" href={url} target="blank">
+      Map
+    </Button>
   );
 };
 
@@ -54,7 +58,10 @@ const Info = ({ event }) => {
   const { venue, venueAddress, performances, ticketsLink, program } = event;
   return (
     <InfoStyles>
-      <InfoIcon />
+      <IconContext.Provider value={{ className: "info-icon" }}>
+        <FaInfoCircle />
+      </IconContext.Provider>
+
       <h4>Details</h4>
       {(venue || venueAddress) && (
         <div className="venue">
@@ -87,14 +94,14 @@ const Info = ({ event }) => {
       </div>
       <Buttons>
         {ticketsLink && (
-          <a href={ticketsLink} className="button button-primary">
+          <Button as="a" href={ticketsLink} primary>
             Tickets
-          </a>
+          </Button>
         )}
         {program && (
-          <a href={`${program.asset.url}?dl=`} className="button">
+          <Button as="a" href={`${program.asset.url}?dl=`}>
             Download the Program
-          </a>
+          </Button>
         )}
       </Buttons>
     </InfoStyles>

@@ -45,12 +45,6 @@ const Header = styled.header`
       font-size: 6rem;
     }
   }
-  .buttons {
-    display: flex;
-  }
-  .buttons a {
-    margin: 0 1rem;
-  }
 `;
 
 // TODO : Add performance date and time
