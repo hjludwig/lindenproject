@@ -3,7 +3,7 @@ import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import background from "../../static/images/hero-bg-temp.jpg";
+import background from "../../../static/images/hero-bg-temp.jpg";
 
 const StyledHeader = styled.header`
   background: grey;

@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import { graphql } from "gatsby";
-import EventHeader from "../components/eventsPage/eventHeader";
-import EventBody from "../components/eventsPage/EventBody";
+import EventHeader from "../components/singleEvent/EventHeader";
+import EventBody from "../components/singleEvent/eventBody";
 
 const EventPage = ({ data }) => {
   const event = data.event;

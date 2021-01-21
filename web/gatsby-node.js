@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.events.nodes.forEach(node => {
     createPage({
       path: node.slug.current,
-      component: path.resolve(`./src/templates/event-page.jsx`),
+      component: path.resolve(`./src/templates/single-event.jsx`),
       context: {
         slug: node.slug.current,
       },

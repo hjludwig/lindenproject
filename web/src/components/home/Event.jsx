@@ -2,7 +2,7 @@ import React from "react";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import formatDate from "../../../utils/formatDate";
+import formatDate from "../../../../utils/formatDate";
 const StyledEvent = styled.div`
   display: flex;
   margin-bottom: 8rem;
