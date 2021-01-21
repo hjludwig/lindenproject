@@ -22,7 +22,11 @@ const Main = styled.div`
   width: 80%;
   margin: 0 auto;
   padding: 12rem 0;
-
+  h3 {
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
   .container {
     max-width: 80ch;
     > div {

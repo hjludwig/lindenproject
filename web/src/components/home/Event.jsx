@@ -3,6 +3,8 @@ import Img from "gatsby-image";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import formatDate from "../../../../utils/formatDate";
+import { Button } from "../Button";
+
 const StyledEvent = styled.div`
   display: flex;
   margin-bottom: 8rem;
@@ -59,13 +61,13 @@ const Event = ({ event }) => {
         </div>
         <div>
           {ticketsLink && (
-            <a className="button button-primary" href={ticketsLink}>
+            <Button primary as="a" href={ticketsLink}>
               Tickets
-            </a>
+            </Button>
           )}
-          <Link className="button" to={slug.current}>
+          <Button as={Link} to={slug.current}>
             More Info
-          </Link>
+          </Button>
         </div>
       </div>
     </StyledEvent>

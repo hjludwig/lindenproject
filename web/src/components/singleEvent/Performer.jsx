@@ -2,6 +2,17 @@ import React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
 import styled from "styled-components";
+import PerformerLinks from "./PerformerLinks";
+
+const PerformerStyles = styled.div`
+  margin: 5rem 0;
+  /* clear: both; */
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+`;
 
 const Headshot = styled.div`
   width: 30%;
@@ -12,21 +23,13 @@ const Headshot = styled.div`
 const Performer = ({ performer }) => {
   const { name, instrument, photo, _rawBio, links } = performer;
   return (
-    <div className="performer">
-      <h4 className="u-cf">
+    <PerformerStyles>
+      <h4>
         {name}
         <span className="separator"> | </span>
         {instrument}
       </h4>
-      <ul className="links">
-        {links.map(link => {
-          return (
-            <li key={link._key}>
-              <a href={link.url}>{link.type[0]}</a>
-            </li>
-          );
-        })}
-      </ul>
+      {links.length !== 0 && <PerformerLinks links={links} />}
 
       <div className="bio">
         <Headshot>
@@ -34,7 +37,7 @@ const Performer = ({ performer }) => {
         </Headshot>
         <BlockContent blocks={_rawBio} />
       </div>
-    </div>
+    </PerformerStyles>
   );
 };
 

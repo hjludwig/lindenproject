@@ -3,8 +3,9 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   text-decoration: none;
-  padding: 0 1.5em;
-  line-height: 2.5;
+  padding: ${props => (props.small ? "0 1.25em" : "0 1.5em")};
+  font-size: ${props => (props.small ? "1.4rem" : "inherit")};
+  line-height: ${props => (props.small ? 2 : 2.5)};
   border-radius: 999px;
   display: inline-block;
 

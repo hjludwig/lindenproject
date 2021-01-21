@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 // import MapButton from "./MapButton";
+import InfoPerformances from "./InfoPerformances";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
 import {
@@ -8,9 +9,11 @@ import {
   FaInfo,
   FaInfoCircle,
   FaTicketAlt,
+  FaYoutube,
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import { Button } from "../Button";
+import InfoButtons from "./InfoButtons";
+import InfoVenue from "./InfoVenue";
 
 const InfoStyles = styled.div`
   background: var(--grey-100);
@@ -22,6 +25,12 @@ const InfoStyles = styled.div`
     text-transform: uppercase;
     font-size: 1.6rem;
     letter-spacing: 0.1em;
+  }
+  h5 {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
   }
 
   > div {
@@ -43,24 +52,9 @@ const InfoStyles = styled.div`
     background: white;
   }
 `;
-const Buttons = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const MapButton = ({ address }) => {
-  const url = `https://www.google.com/maps/search/?api=1&query=${encodeURI(
-    address
-  )}`;
-  return (
-    <Button as="a" href={url} target="blank">
-      Map
-    </Button>
-  );
-};
 
 const Info = ({ event }) => {
-  const { venue, venueAddress, performances, ticketsLink, program } = event;
+  const { venue, venueAddress, ticketsLink, youTubeURL, program } = event;
   return (
     <InfoStyles>
       <IconContext.Provider value={{ className: "info-icon" }}>
@@ -68,48 +62,9 @@ const Info = ({ event }) => {
       </IconContext.Provider>
 
       <h4>Details</h4>
-      {(venue || venueAddress) && (
-        <div className="venue">
-          <h5>Venue</h5>
-          <p>{venue}</p>
-          {venueAddress && (
-            <>
-              <p>{venueAddress}</p>
-              <MapButton address={venueAddress} />
-            </>
-          )}
-        </div>
-      )}
-      <div className="performances">
-        <h5>Performances</h5>
-        {performances.length === 0 ? (
-          <p>Performance data and time TBA</p>
-        ) : (
-          <ul>
-            {performances.map(performance => {
-              return (
-                <li key={performance._key}>
-                  {formatTime(performance.dateTime)}{" "}
-                  {formatDate(performance.dateTime)}
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
-      <Buttons>
-        {ticketsLink && (
-          <Button as="a" href={ticketsLink} primary>
-            <FaTicketAlt />
-            Tickets
-          </Button>
-        )}
-        {program && (
-          <Button as="a" href={`${program.asset.url}?dl=`}>
-            Download the Program
-          </Button>
-        )}
-      </Buttons>
+      {(venue || venueAddress) && <InfoVenue event={event} />}
+      <InfoPerformances event={event} />
+      {(ticketsLink || youTubeURL || program) && <InfoButtons event={event} />}
     </InfoStyles>
   );
 };
