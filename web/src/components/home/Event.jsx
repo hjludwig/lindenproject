@@ -9,6 +9,13 @@ const StyledEvent = styled.div`
   display: flex;
   margin-bottom: 8rem;
   box-shadow: 0 0 5px var(--grey-300);
+  h1 {
+    font-size: 3.8rem;
+    margin-bottom: 0;
+  }
+  h2 {
+    font-size: 3.4rem;
+  }
   .text {
     display: flex;
     flex-direction: column;
@@ -16,9 +23,35 @@ const StyledEvent = styled.div`
   }
   .details {
     order: -1;
+    margin-bottom: 2rem;
+    .venue {
+      /* text-transform: uppercase; */
+      font-weight: 600;
+    }
+    .separator {
+      margin: 0 0.75rem;
+      font-size: 3rem;
+      font-weight: 300;
+      display: inline-block;
+      transform: translateY(2px);
+      color: var(--grey-300);
+    }
+    &:after {
+      content: "";
+      display: block;
+      border-top: 1px solid var(--grey-400);
+      width: 4em;
+      margin-top: 2rem;
+    }
   }
   .media {
     border-right: 1px solid var(--grey-200);
+    height: 480px;
+    width: 480px;
+    .gatsby-image-wrapper {
+      width: 100%;
+      height: 100%;
+    }
   }
   @media screen and (max-width: 750px) {
     display: block;
@@ -57,7 +90,7 @@ const Event = ({ event }) => {
               <span className="separator"> | </span>
             </>
           )}
-          {venue && <span>{venue}</span>}
+          {venue && <span class="venue">{venue}</span>}
         </div>
         <div>
           {ticketsLink && (
