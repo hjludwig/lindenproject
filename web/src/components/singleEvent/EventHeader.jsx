@@ -4,11 +4,14 @@ import Img from "gatsby-image";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
 import { Button } from "../Button";
-import { FaTicketAlt, FaYoutube } from "react-icons/fa";
-
+import { FaArrowCircleDown, FaTicketAlt, FaYoutube } from "react-icons/fa";
+import { GoTriangleDown } from "react-icons/go";
+const Wrapper = styled.div`
+  height: 80vh;
+  position: relative;
+`;
 const Banner = styled.div`
-  margin-top: 12rem;
-  height: 60vh;
+  height: 100%;
   background: linear-gradient(180deg, #000000 0%, #1c1e21 100%);
   .gatsby-image-wrapper {
     height: 100%;
@@ -16,14 +19,12 @@ const Banner = styled.div`
   }
 `;
 const Header = styled.header`
-  margin-top: 12rem;
   position: absolute;
   top: 0;
   left: 0;
   display: block;
-  height: 60vh;
+  height: 100%;
   width: 100%;
-  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +48,28 @@ const Header = styled.header`
   }
 `;
 
+const DownArrow = styled.div`
+  margin: 0 auto;
+  position: absolute;
+  bottom: 1rem;
+  color: var(--grey-900);
+  /* color: var(--lp-green); */
+  z-index: 99;
+  /* border: 1px solid var(--grey-400); */
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  .react-icon {
+    width: 60%;
+    height: 60%;
+    transform: translateY(2px);
+  }
+`;
+
 // TODO : Add performance date and time
 
 const EventHeader = ({ event }) => {
@@ -61,7 +84,7 @@ const EventHeader = ({ event }) => {
   } = event;
 
   return (
-    <>
+    <Wrapper>
       <Banner>{image && <Img fluid={image.asset.fluid} />}</Banner>
       <Header>
         <h1>{title}</h1>
@@ -93,8 +116,11 @@ const EventHeader = ({ event }) => {
             </Button>
           )}
         </div>
+        <DownArrow>
+          <GoTriangleDown />
+        </DownArrow>
       </Header>
-    </>
+    </Wrapper>
   );
 };
 

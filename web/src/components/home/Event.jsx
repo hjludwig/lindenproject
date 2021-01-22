@@ -25,7 +25,6 @@ const StyledEvent = styled.div`
     order: -1;
     margin-bottom: 2rem;
     .venue {
-      /* text-transform: uppercase; */
       font-weight: 600;
     }
     .separator {

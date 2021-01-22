@@ -10,7 +10,7 @@ const HeaderWrapper = styled.div`
   top: 0;
   left: 0;
   background: white;
-  z-index: 9;
+  z-index: 999;
   box-shadow: 0 0 10px 0 rgba(24, 24, 27, 0.2);
 `;
 const StyledHeader = styled.header`
