@@ -15,6 +15,13 @@ export default {
             type: "image",
         },
         {
+            name: "logoInverse",
+            title: "Inverted Logo",
+            description:
+                "A version of the logo suitable for a dark background. Any valid image file. SVG preferred.",
+            type: "image",
+        },
+        {
             name: "tagline",
             title: "Tagline",
             type: "string",

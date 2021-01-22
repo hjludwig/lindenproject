@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   background: white;

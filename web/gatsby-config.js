@@ -34,6 +34,7 @@ module.exports = {
         dataset: "production",
 
         token: process.env.MY_SANITY_TOKEN,
+        watchMode: true,
       },
     },
     {
