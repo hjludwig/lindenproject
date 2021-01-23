@@ -6,6 +6,9 @@ import formatTime from "../../../../utils/formatTime";
 import { Button } from "../Button";
 import { FaArrowCircleDown, FaTicketAlt, FaYoutube } from "react-icons/fa";
 import { GoTriangleDown } from "react-icons/go";
+import { IoIosArrowDown } from "react-icons/io";
+import { breakpoints, centered } from "../../styles/mixins";
+
 const Wrapper = styled.div`
   height: 80vh;
   position: relative;
@@ -22,17 +25,16 @@ const Header = styled.header`
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   color: white;
   h1 {
     margin-bottom: 0;
+    font-size: 6rem;
   }
   h2:after {
     content: "";
@@ -41,10 +43,10 @@ const Header = styled.header`
     width: 5em;
     border: 1px solid white;
   }
-  @media (min-width: 550px) {
-    h1 {
-      font-size: 6rem;
-    }
+  ${breakpoints.smallDesktop} {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 `;
 
@@ -52,7 +54,7 @@ const DownArrow = styled.div`
   margin: 0 auto;
   position: absolute;
   bottom: 1rem;
-  color: var(--grey-900);
+  color: var(--grey-400);
   /* color: var(--lp-green); */
   z-index: 99;
   /* border: 1px solid var(--grey-400); */
@@ -117,7 +119,8 @@ const EventHeader = ({ event }) => {
           )}
         </div>
         <DownArrow>
-          <GoTriangleDown />
+          {/* <GoTriangleDown /> */}
+          <IoIosArrowDown />
         </DownArrow>
       </Header>
     </Wrapper>

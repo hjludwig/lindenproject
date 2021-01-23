@@ -1,15 +1,21 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import Event from "./Event";
+import { centered } from "../../styles/mixins";
 
 import styled from "styled-components";
 
 const StyledEvents = styled.section`
+  ${centered};
   padding: 20rem 0;
   > h1 {
     text-align: center;
     margin-bottom: 10rem;
   }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 // TODO: order by date and filter by season
 
@@ -42,7 +48,7 @@ const Events = () => {
   `);
   const events = data.allSanityEvent.nodes;
   return (
-    <StyledEvents id="concerts" className="container">
+    <StyledEvents id="concerts">
       <h1>Concerts</h1>
       {events.map(event => {
         return <Event event={event} />;

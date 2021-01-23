@@ -5,6 +5,7 @@ import Header from "./Header";
 import "../styles/normalize.css";
 import Footer from "./Footer";
 import GlobalStyle from "../styles/GlobalStyles";
+import Colors from "../styles/colors";
 import { IconContext } from "react-icons";
 
 const Layout = ({ children }) => {
@@ -12,6 +13,7 @@ const Layout = ({ children }) => {
     <>
       <IconContext.Provider value={{ className: "react-icon" }}>
         <GlobalStyle />
+        <Colors />
         <Header />
         <div>
           <main>{children}</main>
