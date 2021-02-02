@@ -2,10 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Button } from "../Button";
 import { FaTicketAlt, FaYoutube } from "react-icons/fa";
+import { breakpoints } from "../../styles/mixins";
 
 const Buttons = styled.div`
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
+  ${breakpoints.tablet} {
+    display: block;
+  }
 `;
 const YouTubeButton = styled(Button)`
   background: red;

@@ -14,6 +14,7 @@ import {
 import { IconContext } from "react-icons";
 import InfoButtons from "./InfoButtons";
 import InfoVenue from "./InfoVenue";
+import { breakpoints } from "../../styles/mixins";
 
 const InfoStyles = styled.div`
   background: var(--grey-100);
@@ -50,6 +51,9 @@ const InfoStyles = styled.div`
     left: 50%;
     transform: translateX(-50%);
     background: white;
+  }
+  ${breakpoints.largeMobile} {
+    padding: 5rem 3rem 3rem 3rem;
   }
 `;
 

@@ -4,10 +4,9 @@ import Img from "gatsby-image";
 import formatDate from "../../../../utils/formatDate";
 import formatTime from "../../../../utils/formatTime";
 import { Button } from "../Button";
-import { FaArrowCircleDown, FaTicketAlt, FaYoutube } from "react-icons/fa";
-import { GoTriangleDown } from "react-icons/go";
+import { FaTicketAlt, FaYoutube } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import { breakpoints, centered } from "../../styles/mixins";
+import { breakpoints } from "../../styles/mixins";
 
 const Wrapper = styled.div`
   height: 80vh;
@@ -32,9 +31,25 @@ const Header = styled.header`
   justify-content: center;
   align-items: center;
   color: white;
+  text-align: center;
   h1 {
     margin-bottom: 0;
     font-size: 6rem;
+    text-wrap: balance;
+    ${breakpoints.tablet} {
+      font-size: 5rem;
+    }
+    ${breakpoints.largeMobile} {
+      font-size: 3.8rem;
+    }
+  }
+  h2 {
+    ${breakpoints.tablet} {
+      font-size: 3.8rem;
+    }
+    ${breakpoints.largeMobile} {
+      font-size: 2.8rem;
+    }
   }
   h2:after {
     content: "";
@@ -48,6 +63,11 @@ const Header = styled.header`
     margin-left: 5%;
     margin-right: 5%;
   }
+  h3 {
+    ${breakpoints.tablet} {
+      font-size: 3rem;
+    }
+  }
 `;
 
 const DownArrow = styled.div`
@@ -55,9 +75,7 @@ const DownArrow = styled.div`
   position: absolute;
   bottom: 1rem;
   color: var(--grey-400);
-  /* color: var(--lp-green); */
   z-index: 99;
-  /* border: 1px solid var(--grey-400); */
   width: 6.5rem;
   height: 6.5rem;
   border-radius: 999px;
@@ -71,9 +89,6 @@ const DownArrow = styled.div`
     transform: translateY(2px);
   }
 `;
-
-// TODO : Add performance date and time
-
 const EventHeader = ({ event }) => {
   const {
     image,
@@ -89,11 +104,11 @@ const EventHeader = ({ event }) => {
     <Wrapper>
       <Banner>{image && <Img fluid={image.asset.fluid} />}</Banner>
       <Header>
-        <h1>{title}</h1>
-        <h2>{tagline}</h2>
+        <h1 className="balance-text">{title}</h1>
+        <h2 className="balance-text">{tagline}</h2>
         {/* TODO Create formatting allowing for more than one performance date */}
         {(performances.length !== 0 || venue) && (
-          <h3>
+          <h3 className="balance-text">
             {performances[0] && (
               <span>
                 {formatTime(performances[0].dateTime)}{" "}
@@ -119,7 +134,6 @@ const EventHeader = ({ event }) => {
           )}
         </div>
         <DownArrow>
-          {/* <GoTriangleDown /> */}
           <IoIosArrowDown />
         </DownArrow>
       </Header>

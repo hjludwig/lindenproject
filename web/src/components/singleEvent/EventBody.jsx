@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BlockContent from "@sanity/block-content-to-react";
 import Performer from "./Performer";
 import Info from "./Info";
+import { breakpoints } from "../../styles/mixins";
 
 const serializers = {
   types: {
@@ -37,6 +38,9 @@ const Main = styled.div`
     font-size: 2.4rem;
     font-weight: 300;
     line-height: 1.4;
+  }
+  ${breakpoints.tablet} {
+    width: 100%;
   }
 `;
 

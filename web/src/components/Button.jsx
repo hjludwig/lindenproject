@@ -1,16 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { breakpoints } from "../styles/mixins";
 
 export const Button = styled.button`
   text-decoration: none;
+  text-align: center;
   padding: ${props => (props.small ? "0 1.25em" : "0 1.5em")};
+  margin-bottom: 1em;
   font-size: ${props => (props.small ? "1.4rem" : "inherit")};
   line-height: ${props => (props.small ? 2 : 2.5)};
   border-radius: 999px;
   display: inline-block;
-
-  /* display: flex; */
-  /* align-items: center; */
+  white-space: nowrap;
   background: ${props => (props.primary ? "var(--lp-green)" : "none")};
   border: 1px solid;
   border-color: ${props =>
@@ -21,7 +22,6 @@ export const Button = styled.button`
     margin-right: 1rem;
     vertical-align: middle;
     transform: translateY(-1px);
-    /* margin-left: -1rem; */
   }
   color: ${props => (props.primary ? "white" : "inherit")};
   &:hover {
@@ -33,5 +33,9 @@ export const Button = styled.button`
   margin-right: 1em;
   &:last-child {
     margin-right: 0;
+  }
+  ${breakpoints.largeMobile} {
+    display: block;
+    margin: 1em 0;
   }
 `;

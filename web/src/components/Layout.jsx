@@ -7,6 +7,9 @@ import Footer from "./Footer";
 import GlobalStyle from "../styles/GlobalStyles";
 import Colors from "../styles/colors";
 import { IconContext } from "react-icons";
+import balanceText from "balance-text";
+
+balanceText();
 
 const Layout = ({ children }) => {
   return (
