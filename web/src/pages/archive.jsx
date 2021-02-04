@@ -5,17 +5,40 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import styled from "styled-components";
 import { centered } from "../styles/mixins";
+import ArchiveEvent from "../components/archive/ArchiveEvent";
 
 const Events = styled.section`
   ${centered}
+  padding: 20rem 0;
+  > h1 {
+    text-align: center;
+  }
 `;
 const Season = styled.div`
   padding: 8rem 0;
 `;
-const ArchiveEvent = styled(Event)`
-  .image {
-    width: 200px;
-    height: 200px;
+const SeasonHeading = styled.h3`
+  position: relative;
+  text-align: center;
+  margin-bottom: 8rem;
+  :before {
+    content: "";
+    display: block;
+    border: 1px solid var(--grey-300);
+    width: 40%;
+    position: absolute;
+    top: 2rem;
+    /* transform: translateY(3rem); */
+  }
+  :after {
+    content: "";
+    display: block;
+    border: 1px solid var(--grey-300);
+    width: 40%;
+    position: absolute;
+    right: 0;
+    top: 2rem;
+    /* transform: translateY(3rem); */
   }
 `;
 
@@ -61,12 +84,12 @@ const Archive = ({ data }) => {
     <Layout>
       <SEO title="Archive" />
       <Events>
-        <h1>Performances Archive</h1>
+        <h1>Past Seasons</h1>
         {keys.map(key => {
           const events = seasons[key];
           return (
             <Season>
-              <h2>{key}</h2>
+              <SeasonHeading>{key}</SeasonHeading>
               {events.map(event => {
                 return <ArchiveEvent event={event} />;
               })}
