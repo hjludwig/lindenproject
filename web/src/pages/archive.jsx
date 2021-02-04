@@ -1,8 +1,23 @@
 import { graphql } from "gatsby";
 import React from "react";
+import Event from "../components/Home/Event";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-// import { formatDate } from "../../../utils/formatDate";
+import styled from "styled-components";
+import { centered } from "../styles/mixins";
+
+const Events = styled.section`
+  ${centered}
+`;
+const Season = styled.div`
+  padding: 8rem 0;
+`;
+const ArchiveEvent = styled(Event)`
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+`;
 
 const Archive = ({ data }) => {
   // Take an event object and determine the season it belongs to and assign that to a new property in the event object
@@ -45,17 +60,20 @@ const Archive = ({ data }) => {
   return (
     <Layout>
       <SEO title="Archive" />
-      {keys.map(key => {
-        const events = seasons[key];
-        return (
-          <div>
-            <h2>{key}</h2>
-            {events.map(event => {
-              return <h3>{event.title}</h3>;
-            })}
-          </div>
-        );
-      })}
+      <Events>
+        <h1>Performances Archive</h1>
+        {keys.map(key => {
+          const events = seasons[key];
+          return (
+            <Season>
+              <h2>{key}</h2>
+              {events.map(event => {
+                return <ArchiveEvent event={event} />;
+              })}
+            </Season>
+          );
+        })}
+      </Events>
     </Layout>
   );
 };
@@ -69,10 +87,20 @@ export const query = graphql`
     ) {
       nodes {
         title
-        tagline
         slug {
           current
         }
+        image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        ticketsLink
+        venue
+        tagline
+        id
         performances {
           dateTime
         }

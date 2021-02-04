@@ -23,8 +23,6 @@ const Text = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-left: 6rem;
-  @media {
-  }
 `;
 const Details = styled.div`
   order: -1;
