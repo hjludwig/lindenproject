@@ -3,11 +3,12 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import EventHeader from "../components/singleEvent/EventHeader";
 import EventBody from "../components/singleEvent/eventBody";
-
+import SEO from "../components/Seo";
 const EventPage = ({ data }) => {
   const event = data.event;
   return (
     <Layout>
+      <SEO title={event.title} />
       <EventHeader event={event} />
       <EventBody event={event} />
     </Layout>

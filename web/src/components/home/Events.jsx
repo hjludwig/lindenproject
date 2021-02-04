@@ -1,7 +1,8 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import Event from "./Event";
 import { centered } from "../../styles/mixins";
+import { Button } from "../Button";
 
 import styled from "styled-components";
 
@@ -53,6 +54,9 @@ const Events = () => {
       {events.map(event => {
         return <Event event={event} />;
       })}
+      <Button as={Link} to="archive">
+        View past seasons
+      </Button>
     </StyledEvents>
   );
 };

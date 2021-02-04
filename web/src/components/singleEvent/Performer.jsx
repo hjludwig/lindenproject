@@ -3,6 +3,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import PerformerLinks from "./PerformerLinks";
+import { breakpoints } from "../../styles/mixins";
 
 const PerformerStyles = styled.div`
   margin: 5rem 0;
@@ -18,6 +19,11 @@ const Headshot = styled.div`
   width: 30%;
   float: left;
   margin: 0 2rem 1rem 0;
+  ${breakpoints.largeMobile} {
+    width: 100%;
+    float: none;
+    margin-right: none;
+  }
 `;
 
 const Performer = ({ performer }) => {

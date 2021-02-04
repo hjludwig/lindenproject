@@ -11,6 +11,9 @@ import { breakpoints } from "../../styles/mixins";
 const Wrapper = styled.div`
   height: 80vh;
   position: relative;
+  ${breakpoints.tablet} {
+    height: 90vh;
+  }
 `;
 const Banner = styled.div`
   height: 100%;
@@ -32,41 +35,59 @@ const Header = styled.header`
   align-items: center;
   color: white;
   text-align: center;
-  h1 {
-    margin-bottom: 0;
-    font-size: 6rem;
-    text-wrap: balance;
-    ${breakpoints.tablet} {
-      font-size: 5rem;
-    }
-    ${breakpoints.largeMobile} {
-      font-size: 3.8rem;
-    }
+
+  ${breakpoints.smallDesktop} {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
-  h2 {
-    ${breakpoints.tablet} {
-      font-size: 3.8rem;
-    }
-    ${breakpoints.largeMobile} {
-      font-size: 2.8rem;
-    }
+`;
+const Title = styled.h1`
+  margin-bottom: 0;
+  font-size: 6rem;
+  text-wrap: balance;
+  ${breakpoints.tablet} {
+    font-size: 5.6rem;
   }
-  h2:after {
+  ${breakpoints.largeMobile} {
+    font-size: 4.8rem;
+  }
+`;
+const Tagline = styled.h2`
+  ${breakpoints.tablet} {
+    font-size: 3.8rem;
+  }
+  ${breakpoints.largeMobile} {
+    font-size: 2.8rem;
+  }
+
+  &:after {
     content: "";
     display: block;
     margin: 3rem auto 2rem auto;
     width: 5em;
     border: 1px solid white;
+    ${breakpoints.largeMobile} {
+      display: none;
+    }
   }
   ${breakpoints.smallDesktop} {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
   }
-  h3 {
-    ${breakpoints.tablet} {
-      font-size: 3rem;
-    }
+`;
+const Meta = styled.h3`
+  ${breakpoints.tablet} {
+    font-size: 3rem;
+  }
+  ${breakpoints.largeMobile} {
+    display: none;
+  }
+`;
+const Buttons = styled.div`
+  ${breakpoints.largeMobile} {
+    display: none;
   }
 `;
 
@@ -104,11 +125,11 @@ const EventHeader = ({ event }) => {
     <Wrapper>
       <Banner>{image && <Img fluid={image.asset.fluid} />}</Banner>
       <Header>
-        <h1 className="balance-text">{title}</h1>
-        <h2 className="balance-text">{tagline}</h2>
+        <Title className="balance-text">{title}</Title>
+        <Tagline className="balance-text">{tagline}</Tagline>
         {/* TODO Create formatting allowing for more than one performance date */}
         {(performances.length !== 0 || venue) && (
-          <h3 className="balance-text">
+          <Meta className="balance-text">
             {performances[0] && (
               <span>
                 {formatTime(performances[0].dateTime)}{" "}
@@ -117,9 +138,9 @@ const EventHeader = ({ event }) => {
             )}
             <span className="separator"> | </span>
             {venue}
-          </h3>
+          </Meta>
         )}
-        <div className="buttons">
+        <Buttons>
           {ticketsLink && (
             <Button primary as="a" href={ticketsLink} target="_blank">
               <FaTicketAlt />
@@ -132,7 +153,7 @@ const EventHeader = ({ event }) => {
               Watch Now
             </Button>
           )}
-        </div>
+        </Buttons>
         <DownArrow>
           <IoIosArrowDown />
         </DownArrow>
