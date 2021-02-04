@@ -5,42 +5,54 @@ import SEO from "../components/SEO";
 // import { formatDate } from "../../../utils/formatDate";
 
 const Archive = ({ data }) => {
-  const getSeason = event => {
+  // Take an event object and determine the season it belongs to and assign that to a new property in the event object
+  const assignSeason = event => {
     if (event.performances.length !== 0) {
       const firstPerformance = new Date(event.performances[0].dateTime);
       const month = firstPerformance.getMonth();
-      console.log(month);
+      const newEvent = { ...event };
       if (month > 7) {
-        const season = `${firstPerformance.getFullYear()}/${
+        newEvent.season = `${firstPerformance.getFullYear()}/${
           firstPerformance.getFullYear() + 1
         }`;
-        return `The performance date is ${firstPerformance}. You are in the first half of the ${season} season`;
       } else {
-        const season = `${
+        newEvent.season = `${
           firstPerformance.getFullYear() - 1
         }/${firstPerformance.getFullYear()}`;
-        return `The performance date is ${firstPerformance}. You are in the last half of the ${season} season`;
       }
+      return newEvent;
     } else {
       console.log("No dates to work with");
     }
   };
 
-  // 1. Go through array and push event to new array if it's part of a certain season
-  // 2. Get first performance month from dateTime
-  //      If first performance month is > July, it's season is the year/year + 1
-  //      If first performance month is < July, it's season is year-1/year
+  //  Create a new array of events with a season property and assign the appropriate season
+  const newEvents = [];
+  data.events.nodes.map(event => {
+    const newEvent = assignSeason(event);
+    newEvents.push(newEvent);
+  });
 
-  // Array filter: event dateTime is > seasonStart and < season end
-  // Push new array to array of seasons
+  // Group the new events array into an object by season
+  const seasons = newEvents.reduce((r, a) => {
+    r[a.season] = [...(r[a.season] || []), a];
+    return r;
+  }, {});
+
+  // Get the keys for our new object so we can render each value (the array of events)
+  const keys = Object.keys(seasons);
 
   return (
     <Layout>
       <SEO title="Archive" />
-      {data.events.nodes.map(event => {
+      {keys.map(key => {
+        const events = seasons[key];
         return (
           <div>
-            <h3>{event.title}</h3> {getSeason(event)}
+            <h2>{key}</h2>
+            {events.map(event => {
+              return <h3>{event.title}</h3>;
+            })}
           </div>
         );
       })}
