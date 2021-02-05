@@ -6,6 +6,8 @@ import SEO from "../components/SEO";
 import styled from "styled-components";
 import { centered } from "../styles/mixins";
 import ArchiveEvent from "../components/archive/ArchiveEvent";
+import buildSeasons from "../utils/buildSeasons";
+import getSeason from "../utils/getSeason";
 
 const Events = styled.section`
   ${centered}
@@ -43,42 +45,14 @@ const SeasonHeading = styled.h3`
 `;
 
 const Archive = ({ data }) => {
-  // Take an event object and determine the season it belongs to and assign that to a new property in the event object
-  const assignSeason = event => {
-    if (event.performances.length !== 0) {
-      const firstPerformance = new Date(event.performances[0].dateTime);
-      const month = firstPerformance.getMonth();
-      const newEvent = { ...event };
-      if (month > 7) {
-        newEvent.season = `${firstPerformance.getFullYear()}/${
-          firstPerformance.getFullYear() + 1
-        }`;
-      } else {
-        newEvent.season = `${
-          firstPerformance.getFullYear() - 1
-        }/${firstPerformance.getFullYear()}`;
-      }
-      return newEvent;
-    } else {
-      console.log("No dates to work with");
-    }
-  };
+  const seasons = buildSeasons(data.events.nodes);
 
-  //  Create a new array of events with a season property and assign the appropriate season
-  const newEvents = [];
-  data.events.nodes.map(event => {
-    const newEvent = assignSeason(event);
-    newEvents.push(newEvent);
-  });
+  const today = new Date();
+  const currentSeason = getSeason(today);
+  const keys = Object.keys(seasons).sort();
 
-  // Group the new events array into an object by season
-  const seasons = newEvents.reduce((r, a) => {
-    r[a.season] = [...(r[a.season] || []), a];
-    return r;
-  }, {});
-
-  // Get the keys for our new object so we can render each value (the array of events)
-  const keys = Object.keys(seasons);
+  // Remove current and future season keys from our keys array
+  keys.splice(keys.findIndex(key => key === currentSeason));
 
   return (
     <Layout>

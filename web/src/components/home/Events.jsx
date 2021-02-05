@@ -5,6 +5,8 @@ import { centered } from "../../styles/mixins";
 import { Button } from "../Button";
 
 import styled from "styled-components";
+import buildSeasons from "../../utils/buildSeasons";
+import getSeason from "../../utils/getSeason";
 
 const StyledEvents = styled.section`
   ${centered};
@@ -18,7 +20,7 @@ const StyledEvents = styled.section`
   flex-direction: column;
   align-items: center;
 `;
-// TODO: order by date and filter by season
+// TODO: filter by season
 
 const Events = () => {
   const data = useStaticQuery(graphql`
@@ -47,7 +49,12 @@ const Events = () => {
       }
     }
   `);
-  const events = data.allSanityEvent.nodes;
+
+  const currentSeason = getSeason(new Date());
+
+  const seasons = buildSeasons(data.allSanityEvent.nodes);
+  const events = seasons[currentSeason];
+
   return (
     <StyledEvents id="concerts">
       <h1>Concerts</h1>
