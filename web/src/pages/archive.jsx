@@ -11,7 +11,6 @@ import getSeason from "../utils/getSeason";
 
 const Events = styled.section`
   ${centered}
-  padding: 20rem 0;
   > h1 {
     text-align: center;
   }

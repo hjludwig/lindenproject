@@ -1,6 +1,20 @@
 export const centered = () => {
-  return `max-width: 1280px; margin-left: auto; margin-right: auto;`;
+  return `max-width: 1280px; margin-left: auto; margin: 20rem auto;`;
 };
+
+export const centeredSmall = () => {
+  return "max-width: 80ch; margin: 20rem auto;";
+};
+
+export const largeText = () => {
+  return `
+  font-size: 2.8rem;
+  line-height: 1.5;
+  color: var(--grey-500);
+  font-family: "Playfair display", serif;
+  `;
+};
+
 export const breakpoints = {
   mobile: function () {
     return `@media screen and (max-width: 400px)`;

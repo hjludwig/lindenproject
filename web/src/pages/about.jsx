@@ -4,12 +4,11 @@ import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import BlockContent from "@sanity/block-content-to-react";
 import styled from "styled-components";
-import { centered } from "../styles/mixins";
+import { centeredSmall, largeText } from "../styles/mixins";
 
 const Wrapper = styled.section`
-  ${centered}
-  max-width: 80ch;
-  padding: 20rem 0;
+  ${centeredSmall}/* max-width: 80ch;
+  padding: 20rem 0; */
 `;
 const Heading = styled.h1`
   color: var(--lp-green);
@@ -17,10 +16,7 @@ const Heading = styled.h1`
   margin-bottom: 1em;
 `;
 const MissonStatement = styled.div`
-  font-size: 2.8rem;
-  line-height: 1.5;
-  color: var(--grey-500);
-  font-family: "Playfair display", serif;
+  ${largeText}
   text-align: center;
   :after {
     content: "";
