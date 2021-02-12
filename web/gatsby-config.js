@@ -56,6 +56,14 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://lindenproject.us19.list-manage.com/subscribe/post?u=769cf30660ee6749d5c74acde&amp;id=008d70c051",
+        timeout: 3500,
+      },
+    },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
