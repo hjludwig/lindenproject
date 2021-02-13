@@ -38,13 +38,6 @@ const Header = () => {
         nodes {
           name
           tagline
-          logo {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
           logoInverse {
             asset {
               fluid {
@@ -56,7 +49,7 @@ const Header = () => {
       }
     }
   `);
-  const { name, tagline, logo, logoInverse } = data.org.nodes[0];
+  const { name, tagline, logoInverse } = data.org.nodes[0];
 
   return (
     <StyledHeader>
@@ -68,14 +61,14 @@ const Header = () => {
           </Link>
         </Logo>
         <Subtitle>
-          <span class="highlight">{tagline.slice(0, 4)}</span>
+          <span className="highlight">{tagline.slice(0, 4)}</span>
           {tagline.slice(4)}
         </Subtitle>
         <Buttons>
+          <Button as={AnchorLink} to="/#concerts" title="Concerts" primary />
           <Button as={Link} to="/about">
             Learn More
           </Button>
-          <Button as={AnchorLink} to="/#concerts" title="Concerts" primary />
         </Buttons>
       </div>
     </StyledHeader>

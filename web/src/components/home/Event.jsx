@@ -99,7 +99,7 @@ const Event = ({ event }) => {
               <span className="separator"> | </span>
             </>
           )}
-          {venue && <span class="venue">{venue}</span>}
+          {venue && <span className="venue">{venue}</span>}
         </Details>
         <div>
           {ticketsLink && (

@@ -1,16 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import MapButton from "./MapButton";
 import InfoPerformances from "./InfoPerformances";
-import formatDate from "../../../../utils/formatDate";
-import formatTime from "../../../../utils/formatTime";
-import {
-  FaFileDownload,
-  FaInfo,
-  FaInfoCircle,
-  FaTicketAlt,
-  FaYoutube,
-} from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import InfoButtons from "./InfoButtons";
 import InfoVenue from "./InfoVenue";

@@ -59,7 +59,7 @@ const Events = () => {
     <StyledEvents id="concerts">
       <h1>Concerts</h1>
       {events.map(event => {
-        return <Event event={event} />;
+        return <Event key={event.id} event={event} />;
       })}
       <Button as={Link} to="archive">
         View past seasons

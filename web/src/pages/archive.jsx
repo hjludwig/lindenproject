@@ -1,6 +1,5 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Event from "../components/Home/Event";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import styled from "styled-components";
@@ -61,10 +60,10 @@ const Archive = ({ data }) => {
         {keys.map(key => {
           const events = seasons[key];
           return (
-            <Season>
+            <Season key={key}>
               <SeasonHeading>{key}</SeasonHeading>
               {events.map(event => {
-                return <ArchiveEvent event={event} />;
+                return <ArchiveEvent key={event.id} event={event} />;
               })}
             </Season>
           );

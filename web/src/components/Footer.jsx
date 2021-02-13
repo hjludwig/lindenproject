@@ -13,14 +13,18 @@ const FooterStyles = styled.footer`
   color: var(--grey-200);
   min-height: 40vh;
   padding-top: 1px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   /* display: flex;
   align-items: center; */
   /* justify-content: space-around; */
 `;
 const Wrapper = styled.div`
-  ${centered}
+  /* width: 95%;
+  margin: 20rem auto; */
+  /* ${centered} */
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(4, minmax(20rem, 1fr));
   grid-gap: 2rem;
 `;
 const Logo = styled.div`
@@ -49,13 +53,12 @@ const Footer = () => {
     }
   `);
   const { name, logoInverse } = data.org.nodes[0];
-  console.log(logoInverse);
   return (
     <FooterStyles>
+      <Logo>
+        <Img alt={name} fluid={logoInverse.asset.fluid} />
+      </Logo>
       <Wrapper>
-        <Logo>
-          <Img fluid={logoInverse.asset.fluid} />
-        </Logo>
         <Performances />
         <Subscribe />
         <Follow />

@@ -41,7 +41,7 @@ const Performer = ({ performer }) => {
         <Headshot>
           <Img fluid={photo.asset.fluid} />
         </Headshot>
-        <BlockContent blocks={_rawBio} />
+        {_rawBio && <BlockContent blocks={_rawBio} />}
       </div>
     </PerformerStyles>
   );

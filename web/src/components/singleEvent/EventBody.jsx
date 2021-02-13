@@ -52,7 +52,6 @@ const EventBody = ({ event }) => {
     performers,
     venueAddress,
     performances,
-    ticketsLink,
   } = event;
   return (
     <Main className="wrapper">

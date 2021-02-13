@@ -17,9 +17,11 @@ const Support = () => {
         our donors.
       </p>
       <p>
-        <Link to="donors">Our Supporters</Link>
+        <Link to="/donors">Our Supporters</Link>
       </p>
-      <Button primary>Donate</Button>
+      <Button primary="true" as={Link} to="/donate">
+        Donate
+      </Button>
     </Wrapper>
   );
 };

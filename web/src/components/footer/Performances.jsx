@@ -17,10 +17,14 @@ const Performances = () => {
           <AnchorLink to="/#concerts">Current Season</AnchorLink>
         </li>
         <li>
-          <Link to="archive">Past Seasons</Link>
+          <Link to="/archive">Past Seasons</Link>
         </li>
         <li>
-          <a target="_blank" href="https://lindenproject.ticketleap.com/">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://lindenproject.ticketleap.com/"
+          >
             Tickets
           </a>
         </li>

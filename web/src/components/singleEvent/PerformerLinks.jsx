@@ -23,7 +23,6 @@ const LinkList = styled.ul`
 `;
 
 const PerformerLinks = ({ links }) => {
-  console.log(links);
   return (
     <LinkList className="links">
       <h5>Connect</h5>

@@ -11,6 +11,7 @@ import person from "./person";
 import donor from "./donor";
 import donation from "./donation";
 import link from "./link";
+import social from "./social";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,5 +29,6 @@ export default createSchema({
         donor,
         donation,
         link,
+        social,
     ]),
 });

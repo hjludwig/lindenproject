@@ -3,7 +3,6 @@ import Img from "gatsby-image";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import formatDate from "../../../../utils/formatDate";
-import { Button } from "../Button";
 
 const StyledEvent = styled.div`
   width: 90%;
@@ -71,16 +70,7 @@ const Media = styled.div`
 `;
 
 const ArchiveEvent = ({ event }) => {
-  const {
-    title,
-    ticketsLink,
-    venue,
-    tagline,
-    id,
-    slug,
-    performances,
-    image,
-  } = event;
+  const { title, venue, tagline, id, slug, performances, image } = event;
   return (
     <StyledEvent key={id}>
       {image && (
@@ -90,7 +80,7 @@ const ArchiveEvent = ({ event }) => {
       )}
       <Text>
         <header>
-          <TitleLink to={`../${slug.current}`}>
+          <TitleLink to={`/${slug.current}`}>
             <h1>{title}</h1>
           </TitleLink>
           <h2>{tagline}</h2>
@@ -104,7 +94,7 @@ const ArchiveEvent = ({ event }) => {
               <span className="separator"> | </span>
             </>
           )}
-          {venue && <span class="venue">{venue}</span>}
+          {venue && <span className="venue">{venue}</span>}
         </Details>
       </Text>
     </StyledEvent>

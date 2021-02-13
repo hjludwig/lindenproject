@@ -6,7 +6,7 @@ import SEO from "../components/Seo";
 import Season from "../components/donorsPage/Season";
 
 import styled from "styled-components";
-import { centeredSmall, largeText, centered } from "../styles/mixins";
+import { largeText, centered } from "../styles/mixins";
 import { Button } from "../components/Button";
 
 const Wrapper = styled.section`
@@ -76,12 +76,18 @@ const DonorsPage = ({ data }) => {
           <p>
             If you would like to support us, please consider making a donation.
           </p>
-          <Button primary as={Link} to="../donate">
+          <Button primary="true" as={Link} to="/donate">
             Donate
           </Button>
         </Intro>
         {seasons.map(season => {
-          return <Season label={season.label} donors={season.donors} />;
+          return (
+            <Season
+              key={season.label}
+              label={season.label}
+              donors={season.donors}
+            />
+          );
         })}
       </Wrapper>
     </Layout>

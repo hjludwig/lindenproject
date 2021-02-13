@@ -33,6 +33,12 @@ export default {
             type: "string",
         },
         {
+            name: "socialLinks",
+            title: "Social Media Links",
+            type: "array",
+            of: [{ type: "social" }],
+        },
+        {
             name: "descriptionShort",
             title: "Short Description",
             description: "A one paragraph description of the organization",

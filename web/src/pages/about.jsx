@@ -28,7 +28,6 @@ const MissonStatement = styled.div`
 `;
 
 const AboutPage = ({ data }) => {
-  console.log(data);
   const {
     missionStatement,
     descriptionShort,

@@ -14,7 +14,7 @@ const buildSeasons = events => {
   };
   //  Create a new array of events with a season property and assign the appropriate season
   const newEvents = [];
-  events.map(event => {
+  events.forEach(event => {
     const newEvent = assignSeason(event);
     newEvents.push(newEvent);
   });

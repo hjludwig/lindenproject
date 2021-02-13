@@ -14,12 +14,12 @@ const List = styled.ul`
     margin-bottom: 0;
   }
 `;
-const Logo = styled.li`
+const Logo = styled.div`
   width: 24rem;
   padding: 3rem;
   filter: saturate(0);
 `;
-const Name = styled.li``;
+const Name = styled.div``;
 
 const flexStyles = {
   display: "flex",
@@ -37,15 +37,15 @@ const DonorsList = ({ donors, label }) => {
           {donors.map(donor => {
             const { name, id, logo } = donor;
             return (
-              <>
+              <li key={id}>
                 {logo ? (
-                  <Logo>
+                  <Logo key={id}>
                     <Img fluid={logo.asset.fluid} alt={name} />
                   </Logo>
                 ) : (
-                  <Name>{name}</Name>
+                  <Name key={id}>{name}</Name>
                 )}
-              </>
+              </li>
             );
           })}
         </List>
