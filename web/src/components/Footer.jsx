@@ -13,8 +13,8 @@ const FooterStyles = styled.footer`
   color: var(--grey-200);
   min-height: 40vh;
   padding-top: 1px;
-  display: grid;
-  grid-template-columns: 1fr 5fr;
+  /* display: grid;
+  grid-template-columns: 1fr 5fr; */
   /* display: flex;
   align-items: center; */
   /* justify-content: space-around; */
@@ -22,17 +22,28 @@ const FooterStyles = styled.footer`
 const Wrapper = styled.div`
   /* width: 95%;
   margin: 20rem auto; */
-  /* ${centered} */
+  ${centered}
+  padding-bottom: 10rem;
+  margin-bottom: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(20rem, 1fr));
+  /* grid-template-columns: repeat(2, minmax(20rem, 1fr)); */
+  grid-template-columns: 1fr 2fr 2fr;
   grid-gap: 2rem;
+  column-gap: 10rem;
 `;
 const Logo = styled.div`
   width: 75%;
+  width: 20rem;
   /* margin: auto; */
+  grid-row: span 2;
 `;
 const Meta = styled.div`
-  /* grid-column: span 6; */
+  grid-column: span 3;
+  border-top: 1px solid var(--grey-700);
+  padding-top: 2em;
+  margin-top: 2em;
+  text-align: right;
+  color: var(--grey-500);
 `;
 
 const Footer = () => {
@@ -55,18 +66,18 @@ const Footer = () => {
   const { name, logoInverse } = data.org.nodes[0];
   return (
     <FooterStyles>
-      <Logo>
-        <Img alt={name} fluid={logoInverse.asset.fluid} />
-      </Logo>
       <Wrapper>
+        <Logo>
+          <Img alt={name} fluid={logoInverse.asset.fluid} />
+        </Logo>
         <Performances />
         <Subscribe />
-        <Follow />
         <Support />
+        <Follow />
+        <Meta>
+          <small>© {new Date().getFullYear()}, The Linden Project.</small>
+        </Meta>
       </Wrapper>
-      <Meta>
-        <small>© {new Date().getFullYear()}, The Linden Project.</small>
-      </Meta>
     </FooterStyles>
   );
 };

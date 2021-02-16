@@ -5,7 +5,10 @@ const Subscribe = () => {
   return (
     <div>
       <h4>Subscribe</h4>
-      <p>Subscribe you know you love it.</p>
+      <p>
+        Sign up for our email newsletter for concert announcements, reminders,
+        and other good stuff.
+      </p>
       <MailchimpSignup />
     </div>
   );

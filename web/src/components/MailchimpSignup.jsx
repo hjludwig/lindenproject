@@ -4,7 +4,9 @@ import addToMailchimp from "gatsby-plugin-mailchimp";
 import styled from "styled-components";
 
 const EmailForm = styled.form`
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 3fr 1fr;
   align-items: center;
 `;
 const EmailInput = styled.input.attrs(props => ({
@@ -17,6 +19,12 @@ const EmailInput = styled.input.attrs(props => ({
   height: auto !important;
   line-height: 2.5;
   border: none;
+`;
+const EmailLabel = styled.label`
+  grid-column: span 2;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 0.8em;
 `;
 
 const SubmitButton = styled(Button)`
@@ -48,7 +56,13 @@ const MailchimpSignup = () => {
   return (
     <div>
       <EmailForm>
-        <EmailInput type="text" onChange={handleChange} />
+        <EmailLabel for="email">Your email</EmailLabel>
+        <EmailInput
+          name="email"
+          type="email"
+          placeholder="name@address.com"
+          onChange={handleChange}
+        />
         <SubmitButton primary onClick={handleSubmit}>
           Submit
         </SubmitButton>
