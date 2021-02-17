@@ -19,7 +19,7 @@ const Support = () => {
       <p>
         <Link to="/donors">Our Supporters</Link>
       </p>
-      <Button primary="true" as={Link} to="/donate">
+      <Button className="button" primary="true" as={Link} to="/donate">
         Donate
       </Button>
     </Wrapper>

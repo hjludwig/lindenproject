@@ -6,36 +6,45 @@ import Img from "gatsby-image";
 import Subscribe from "./footer/Subscribe";
 import Follow from "./footer/Follow";
 import Support from "./footer/Support";
-import { centered } from "../styles/mixins";
+import { breakpoints, centered } from "../styles/mixins";
 
 const FooterStyles = styled.footer`
   background: var(--grey-800);
   color: var(--grey-200);
-  min-height: 40vh;
   padding-top: 1px;
-  /* display: grid;
-  grid-template-columns: 1fr 5fr; */
-  /* display: flex;
-  align-items: center; */
-  /* justify-content: space-around; */
 `;
 const Wrapper = styled.div`
-  /* width: 95%;
-  margin: 20rem auto; */
   ${centered}
   padding-bottom: 10rem;
   margin-bottom: 0;
   display: grid;
-  /* grid-template-columns: repeat(2, minmax(20rem, 1fr)); */
   grid-template-columns: 1fr 2fr 2fr;
   grid-gap: 2rem;
   column-gap: 10rem;
+  ${breakpoints.smallDesktop} {
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: 5rem auto 0 auto;
+  }
+  ${breakpoints.largeMobile} {
+    display: flex;
+    flex-direction: column;
+    margin: 5rem auto 0 auto;
+    /* width: 90%; */
+  }
 `;
 const Logo = styled.div`
-  width: 75%;
   width: 20rem;
-  /* margin: auto; */
   grid-row: span 2;
+  ${breakpoints.smallDesktop} {
+    grid-column: span 2;
+    grid-row: span 1;
+    margin: auto;
+    width: 15rem;
+    margin-bottom: 4rem;
+  }
+  ${breakpoints.largeMobile} {
+  }
 `;
 const Meta = styled.div`
   grid-column: span 3;
@@ -44,6 +53,9 @@ const Meta = styled.div`
   margin-top: 2em;
   text-align: right;
   color: var(--grey-500);
+  ${breakpoints.smallDesktop} {
+    grid-column: span 2;
+  }
 `;
 
 const Footer = () => {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./Button";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import styled from "styled-components";
+import { breakpoints } from "../styles/mixins";
 
 const EmailForm = styled.form`
   display: grid;
@@ -19,6 +20,9 @@ const EmailInput = styled.input.attrs(props => ({
   height: auto !important;
   line-height: 2.5;
   border: none;
+  ${breakpoints.largeMobile} {
+    font-size: 1.6rem;
+  }
 `;
 const EmailLabel = styled.label`
   grid-column: span 2;
