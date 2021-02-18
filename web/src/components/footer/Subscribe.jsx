@@ -2,9 +2,13 @@ import React from "react";
 import MailchimpSignup from "../MailchimpSignup";
 import styled from "styled-components";
 import { FooterStyles } from "./Footer.elements";
+import { breakpoints } from "../../styles/mixins";
 
 const Wrapper = styled.div`
   ${FooterStyles}
+  ${breakpoints.tablet} {
+    grid-column: 1/-1;
+  }
 `;
 
 const Subscribe = () => {

@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import { Button } from "../Button";
 import styled from "styled-components";
-import { FooterStyles } from "./Footer.elements";
+import { FooterLink, FooterStyles } from "./Footer.elements";
 
 const Wrapper = styled.div`
   ${FooterStyles}
@@ -17,9 +17,11 @@ const Support = () => {
         our donors.
       </p>
       <p>
-        <Link to="/donors">Our Supporters</Link>
+        <FooterLink as={Link} to="/donors">
+          Our Supporters
+        </FooterLink>
       </p>
-      <Button className="button" primary="true" as={Link} to="/donate">
+      <Button primary="true" as={Link} to="/donate">
         Donate
       </Button>
     </Wrapper>

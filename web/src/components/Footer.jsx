@@ -30,32 +30,26 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin: 5rem auto 0 auto;
-    /* width: 90%; */
   }
 `;
 const Logo = styled.div`
   width: 20rem;
   grid-row: span 2;
   ${breakpoints.smallDesktop} {
-    grid-column: span 2;
+    grid-column: 1/-1;
     grid-row: span 1;
     margin: auto;
     width: 15rem;
     margin-bottom: 4rem;
   }
-  ${breakpoints.largeMobile} {
-  }
 `;
 const Meta = styled.div`
-  grid-column: span 3;
+  grid-column: 1/-1;
   border-top: 1px solid var(--grey-700);
   padding-top: 2em;
   margin-top: 2em;
   text-align: right;
   color: var(--grey-500);
-  ${breakpoints.smallDesktop} {
-    grid-column: span 2;
-  }
 `;
 
 const Footer = () => {

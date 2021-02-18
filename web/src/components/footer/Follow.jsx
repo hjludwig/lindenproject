@@ -2,7 +2,7 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import SocialIcon from "../SocialIcon";
-import { FooterStyles } from "./Footer.elements";
+import { FooterLink, FooterStyles } from "./Footer.elements";
 
 const Wrapper = styled.div`
   ${FooterStyles}
@@ -12,10 +12,6 @@ const SocialIcons = styled.ul`
   margin-bottom: 0.5em;
 `;
 const FooterIcon = styled(SocialIcon)`
-  &:before {
-    border: 0px !important;
-    padding: 0 !important;
-  }
   color: var(--grey-300);
   &:hover {
     color: white;
@@ -49,7 +45,9 @@ const Follow = () => {
           </li>
         ))}
       </SocialIcons>
-      <Link to="/contact">Contact Us</Link>
+      <FooterLink as={Link} to="/contact">
+        Contact Us
+      </FooterLink>
     </Wrapper>
   );
 };
