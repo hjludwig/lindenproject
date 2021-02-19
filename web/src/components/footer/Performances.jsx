@@ -15,7 +15,7 @@ const Performances = () => {
       <ul>
         <li>
           <FooterLink as={AnchorLink} to="/#concerts">
-            Currents Season
+            Current Season
           </FooterLink>
         </li>
         <li>

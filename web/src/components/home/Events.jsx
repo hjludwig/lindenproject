@@ -10,7 +10,7 @@ import getSeason from "../../utils/getSeason";
 
 const StyledEvents = styled.section`
   ${centered};
-
+  /* background: var(--grey-200); */
   > h1 {
     text-align: center;
     margin-bottom: 10rem;

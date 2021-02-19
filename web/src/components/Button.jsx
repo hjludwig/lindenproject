@@ -35,6 +35,7 @@ export const Button = styled.button`
   }
   ${breakpoints.largeMobile} {
     display: block;
+    /* width: 100%; */
     margin-right: 0;
     font-size: 1.6rem;
     padding: ${props => (props.small ? "0 1.25em" : "0 1.25em")};

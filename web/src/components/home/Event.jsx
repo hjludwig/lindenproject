@@ -4,10 +4,14 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import formatDate from "../../../../utils/formatDate";
 import { Button } from "../Button";
+import { breakpoints } from "../../styles/mixins";
 
 const StyledEvent = styled.div`
   width: 100%;
-  display: flex;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 6rem;
   margin-bottom: 8rem;
   box-shadow: 0 0 5px var(--grey-300);
   h1 {
@@ -17,12 +21,23 @@ const StyledEvent = styled.div`
   h2 {
     font-size: 3.4rem;
   }
+  ${breakpoints.tablet} {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 `;
 const Text = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
+  ${breakpoints.tablet} {
+    padding: 0 5%;
+    transform: translateY(-20rem);
+    z-index: 99;
+    margin-bottom: -15rem;
+  }
 `;
 const Details = styled.div`
   order: -1;
@@ -49,21 +64,32 @@ const Details = styled.div`
 const Media = styled.div`
   border-right: 1px solid var(--grey-200);
   height: 480px;
-  width: 480px;
-  @media screen and (max-width: 750px) {
-    width: 100%;
-  }
+
   .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
   }
 
-  @media screen and (max-width: 1300px) {
-    width: 95%;
-  }
-  @media screen and (max-width: 750px) {
-    flex-direction: column;
-    width: 95%;
+  ${breakpoints.tablet} {
+    border-right: none;
+    height: 50vh;
+    position: relative;
+    :before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 50vh;
+      position: absolute;
+      /* top: 0px; */
+      background: rgb(255, 255, 255);
+      background: linear-gradient(
+        357deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 15%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      z-index: 9;
+    }
   }
 `;
 

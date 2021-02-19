@@ -5,23 +5,27 @@ import styled from "styled-components";
 import { breakpoints } from "../styles/mixins";
 
 const EmailForm = styled.form`
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-  grid-template-columns: 3fr 1fr;
-  align-items: center;
+  @media screen and (min-width: 350px) {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+  }
 `;
-const EmailInput = styled.input.attrs(props => ({
-  type: "email",
-}))`
+const EmailInput = styled.input`
   color: var(--grey-600);
-  border-radius: 999px 0 0 999px;
   padding: 0 1em !important;
   margin-bottom: 1em;
   height: auto !important;
   line-height: 2.5;
   border: none;
+  border-radius: 999px;
+  width: 100%;
   ${breakpoints.largeMobile} {
     font-size: 1.6rem;
+  }
+  @media screen and (min-width: 350px) {
+    border-radius: 999px 0 0 999px;
   }
 `;
 const EmailLabel = styled.label`
@@ -33,6 +37,10 @@ const EmailLabel = styled.label`
 
 const SubmitButton = styled(Button)`
   border-radius: 0 999px 999px 0;
+  @media screen and (max-width: 350px) {
+    width: 100%;
+    border-radius: 999px;
+  }
 `;
 
 const MailchimpSignup = () => {
