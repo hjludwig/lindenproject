@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import React from "react";
+import React, { useState } from "react";
+import { FaBars, FaHamburger } from "react-icons/fa";
 import styled from "styled-components";
 import { Button } from "./Button";
 
@@ -29,9 +30,9 @@ const Nav = styled.nav`
   }
 `;
 
-const NavBar = () => {
+const NavBar = ({ className }) => {
   return (
-    <Nav>
+    <Nav className={className}>
       <ul>
         <li>
           <AnchorLink to="/#concerts" title="Concerts" />

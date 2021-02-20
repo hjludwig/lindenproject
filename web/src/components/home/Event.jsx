@@ -15,16 +15,26 @@ const StyledEvent = styled.div`
   margin-bottom: 8rem;
   box-shadow: 0 0 5px var(--grey-300);
   h1 {
-    font-size: 3.8rem;
+    font-size: 4.2rem;
     margin-bottom: 0;
   }
   h2 {
-    font-size: 3.4rem;
+    font-size: 3rem;
+    color: var(--grey-400);
   }
   ${breakpoints.tablet} {
     display: flex;
     flex-direction: column;
     position: relative;
+    h1 {
+      font-size: 3.6rem;
+    }
+    h2 {
+      font-size: 2.6rem;
+    }
+  }
+  ${breakpoints.largeMobile} {
+    margin-bottom: 3rem;
   }
 `;
 const Text = styled.div`
@@ -60,6 +70,13 @@ const Details = styled.div`
     width: 4em;
     margin-top: 2rem;
   }
+  ${breakpoints.tablet} {
+    /* background: var(--grey-900); */
+    font-weight: 900;
+    .venue {
+      font-weight: 900;
+    }
+  }
 `;
 const Media = styled.div`
   border-right: 1px solid var(--grey-200);
@@ -72,13 +89,13 @@ const Media = styled.div`
 
   ${breakpoints.tablet} {
     border-right: none;
-    height: 50vh;
+    height: 380px;
     position: relative;
     :before {
       content: "";
       display: block;
       width: 100%;
-      height: 50vh;
+      height: 380px;
       position: absolute;
       /* top: 0px; */
       background: rgb(255, 255, 255);
@@ -113,8 +130,8 @@ const Event = ({ event }) => {
       )}
       <Text>
         <header>
-          <h1>{title}</h1>
-          <h2>{tagline}</h2>
+          <h1 className="balance-text">{title}</h1>
+          <h2 className="balance-text">{tagline}</h2>
         </header>
 
         <Details>

@@ -3,6 +3,7 @@ import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import NavBar from "./NavBar";
+import MobileNav from "./MobileNav";
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -54,6 +55,7 @@ const Header = () => {
           </Link>
         </Logo>
         <NavBar />
+        <MobileNav />
       </StyledHeader>
     </HeaderWrapper>
   );

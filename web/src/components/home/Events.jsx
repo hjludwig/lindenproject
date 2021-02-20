@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import Event from "./Event";
-import { centered } from "../../styles/mixins";
+import { breakpoints, centered } from "../../styles/mixins";
 import { Button } from "../Button";
 
 import styled from "styled-components";
@@ -10,7 +10,6 @@ import getSeason from "../../utils/getSeason";
 
 const StyledEvents = styled.section`
   ${centered};
-  /* background: var(--grey-200); */
   > h1 {
     text-align: center;
     margin-bottom: 10rem;
@@ -19,8 +18,12 @@ const StyledEvents = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  ${breakpoints.tablet} {
+    > h1 {
+      margin-bottom: 4rem;
+    }
+  }
 `;
-// TODO: filter by season
 
 const Events = () => {
   const data = useStaticQuery(graphql`
