@@ -55,7 +55,6 @@ const Header = () => {
           </Link>
         </Logo>
         <NavBar />
-        <MobileNav />
       </StyledHeader>
     </HeaderWrapper>
   );
