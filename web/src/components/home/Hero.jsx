@@ -12,7 +12,7 @@ const StyledHeader = styled.header`
   background-image: url(${background});
   background-size: cover;
   background-position: 40% 0;
-  height: calc(100vh - 120px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,10 +77,8 @@ const Header = () => {
     <StyledHeader>
       <div className="container">
         <Logo>
-          <Link to="/">
-            <title>{name}</title>
-            <Img fluid={logoInverse.asset.fluid} alt={name} />
-          </Link>
+          <title>{name}</title>
+          <Img fluid={logoInverse.asset.fluid} alt={name} />
         </Logo>
         <Subtitle className="balance-text">
           <span className="highlight">{tagline.slice(0, 4)}</span>

@@ -11,13 +11,14 @@ import balanceText from "balance-text";
 
 balanceText();
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHome }) => {
+  // console.log(isHome ? "Home page" : "Some other page");
   return (
     <>
       <IconContext.Provider value={{ className: "react-icon" }}>
         <GlobalStyle />
         <Colors />
-        <Header />
+        <Header isHome={isHome} />
         <div>
           <main>{children}</main>
         </div>

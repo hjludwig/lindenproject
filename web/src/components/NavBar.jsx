@@ -16,6 +16,7 @@ const MenuButton = styled.div`
   ${breakpoints.largeMobile} {
     display: block;
   }
+  color: ${props => (props.isHome ? "white" : "inherit")};
 `;
 
 const DonateButton = styled(Button)`
@@ -67,7 +68,7 @@ const Nav = styled.nav`
   }
 `;
 
-const NavBar = ({ className }) => {
+const NavBar = ({ className, isHome }) => {
   const [open, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!open);
@@ -88,7 +89,7 @@ const NavBar = ({ className }) => {
           </DonateButton>
         </li>
       </ul>
-      <MenuButton onClick={toggle}>
+      <MenuButton onClick={toggle} isHome={isHome}>
         {open ? <FaTimes /> : <FaBars />}
       </MenuButton>
     </Nav>

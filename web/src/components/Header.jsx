@@ -7,12 +7,14 @@ import MobileNav from "./MobileNav";
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  position: sticky;
+  position: ${props => (props.isHome ? "absolute" : "sticky")};
   top: 0;
   left: 0;
-  background: white;
+  background: ${props => (props.isHome ? "transparent" : "white")};
+  /* background: white; */
   z-index: 999;
-  box-shadow: 0 0 10px 0 rgba(24, 24, 27, 0.2);
+  box-shadow: ${props =>
+    props.isHome ? "none" : "0 0 10px 0 rgba(24, 24, 27, 0.2)"};
 `;
 const StyledHeader = styled.header`
   display: flex;
@@ -24,9 +26,10 @@ const StyledHeader = styled.header`
 `;
 const Logo = styled.div`
   width: 120px;
+  display: ${props => (props.isHome ? "none" : "block")};
 `;
 
-const Header = () => {
+const Header = ({ isHome }) => {
   const data = useStaticQuery(graphql`
     query {
       org: allSanityOrganization {
@@ -46,15 +49,15 @@ const Header = () => {
   const { name, logo } = data.org.nodes[0];
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper isHome={isHome}>
       <StyledHeader>
-        <Logo>
+        <Logo isHome={isHome}>
           <Link to="/">
             <title>{name}</title>
             <Img fluid={logo.asset.fluid} alt={name} />
           </Link>
         </Logo>
-        <NavBar />
+        <NavBar isHome={isHome} />
       </StyledHeader>
     </HeaderWrapper>
   );

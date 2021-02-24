@@ -7,7 +7,7 @@ import Hero from "../components/home/Hero";
 import styled from "styled-components";
 
 const IndexPage = () => (
-  <Layout>
+  <Layout isHome={true}>
     <Hero />
     <SEO title="Home" />
     <Events />
