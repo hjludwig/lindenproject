@@ -117,7 +117,7 @@ const Header = ({ isHome }) => {
             <MobileIcon fluid={icon.asset.fluid} alt={name} />
           </Link>
         </LogoWrapper>
-        <NavBar isHome={isHome} />
+        <NavBar isHome={isHome} sticky={sticky} />
       </StyledHeader>
     </HeaderWrapper>
   );
