@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@sanity/block-content-to-react": "^2.0.7",
     "balance-text": "^3.3.0",
     "gatsby": "^2.26.1",

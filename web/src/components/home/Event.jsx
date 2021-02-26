@@ -5,6 +5,7 @@ import styled from "styled-components";
 import formatDate from "../../../../utils/formatDate";
 import { Button } from "../Button";
 import { breakpoints } from "../../styles/mixins";
+import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 const StyledEvent = styled.div`
   width: 100%;
@@ -78,6 +79,12 @@ const Details = styled.div`
     }
   }
 `;
+const Icon = styled.span`
+  color: var(--lp-green);
+  margin-right: 0.25em;
+  position: relative;
+  top: 2px;
+`;
 const Media = styled.div`
   border-right: 1px solid var(--grey-200);
   height: 480px;
@@ -138,11 +145,24 @@ const Event = ({ event }) => {
           {/* TODO Create formatting allowing for more than one performance date */}
           {performances[0] && (
             <>
-              <span>{formatDate(performances[0].dateTime)}</span>
+              <span>
+                <Icon>
+                  <FaCalendarAlt />
+                </Icon>
+
+                {formatDate(performances[0].dateTime)}
+              </span>
               <span className="separator"> | </span>
             </>
           )}
-          {venue && <span className="venue">{venue}</span>}
+          {venue && (
+            <span className="venue">
+              <Icon>
+                <FaMapMarkerAlt />
+              </Icon>
+              {venue}
+            </span>
+          )}
         </Details>
         <div>
           {ticketsLink && (

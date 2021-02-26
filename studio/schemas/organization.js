@@ -22,6 +22,13 @@ export default {
             type: "image",
         },
         {
+            name: "icon",
+            title: "Icon",
+            description:
+                "A small image for use on the webheader, mobile menu, etc",
+            type: "image",
+        },
+        {
             name: "tagline",
             title: "Tagline",
             type: "string",

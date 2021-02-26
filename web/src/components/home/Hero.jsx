@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
   background-image: url(${background});
   background-size: cover;
   background-position: 40% 0;
+  background-attachment: fixed;
   height: 100vh;
   display: flex;
   flex-direction: column;
