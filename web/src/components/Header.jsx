@@ -12,11 +12,14 @@ const HeaderWrapper = styled.div`
   position: ${props => (props.sticky ? "sticky" : "static")};
   top: 0;
   left: 0;
-  background: ${props => (props.isHome ? "transparent" : "white")};
-  color: ${props => (props.isHome ? "white" : "inherit")};
+  background: ${props =>
+    props.isHome && !props.sticky ? "transparent" : "white"};
+  color: ${props => (props.isHome && !props.sticky ? "white" : "inherit")};
   z-index: 999;
   box-shadow: ${props =>
-    props.isHome ? "none" : "0 0 10px 0 rgba(24, 24, 27, 0.2)"};
+    props.isHome && !props.sticky
+      ? "none"
+      : "0 0 10px 0 rgba(24, 24, 27, 0.2)"};
   transform: ${props =>
     props.offScreen ? "translateY(-120px)" : "translateY(0)"};
   transition: transform 0.2s ease;
@@ -32,7 +35,7 @@ const LogoWrapper = styled.div`
   width: 120px;
   height: 120px;
   > * {
-    display: ${props => (props.isHome ? "none" : "block")};
+    display: ${props => (props.isHome && !props.sticky ? "none" : "block")};
   }
   ${breakpoints.largeMobile} {
     height: 60px;
@@ -107,7 +110,7 @@ const Header = ({ isHome }) => {
   return (
     <HeaderWrapper isHome={isHome} sticky={sticky} offScreen={offScreen}>
       <StyledHeader>
-        <LogoWrapper isHome={isHome}>
+        <LogoWrapper isHome={isHome} sticky={sticky}>
           <Link to="/">
             <title>{name}</title>
             <Logo fluid={logo.asset.fluid} alt={name} />

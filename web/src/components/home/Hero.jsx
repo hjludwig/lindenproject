@@ -14,6 +14,7 @@ const StyledHeader = styled.header`
   background-position: 40% 0;
   background-attachment: fixed;
   height: 100vh;
+  margin-top: -120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
