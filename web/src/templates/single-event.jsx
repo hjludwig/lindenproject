@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import EventHeader from "../components/singleEvent/EventHeader";
-import EventBody from "../components/singleEvent/eventBody";
+import EventBody from "../components/singleEvent/EventBody";
 import SEO from "../components/Seo";
 const EventPage = ({ data }) => {
   const event = data.event;
