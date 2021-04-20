@@ -9,7 +9,7 @@ import Colors from "../styles/colors";
 import { IconContext } from "react-icons";
 import balanceText from "balance-text";
 
-balanceText();
+// balanceText();
 
 const Layout = ({ children, isHome }) => {
   // console.log(isHome ? "Home page" : "Some other page");
