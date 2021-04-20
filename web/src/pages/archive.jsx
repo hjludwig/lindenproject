@@ -1,7 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import SEO from "../components/Seo";
 import styled from "styled-components";
 import { centered } from "../styles/mixins";
 import ArchiveEvent from "../components/archive/ArchiveEvent";
