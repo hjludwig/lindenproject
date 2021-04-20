@@ -43,19 +43,7 @@ module.exports = {
         offset: -100,
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Lato`,
-          },
-          {
-            family: `Playfair Display`,
-          },
-        ],
-      },
-    },
+
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
