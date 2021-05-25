@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "@fontsource/playfair-display";
+import "@fontsource/playfair-display/600-italic.css";
 import "@fontsource/lato";
 
 const GlobalStyles = createGlobalStyle`
