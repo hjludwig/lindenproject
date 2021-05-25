@@ -79,6 +79,9 @@ const NavBar = ({ className, isHome, sticky, open, toggle }) => {
           <Link to="/about">About</Link>
         </li>
         <li onClick={toggle}>
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li onClick={toggle}>
           <DonateButton className="button" as={Link} to="/donate" primary>
             Donate
           </DonateButton>

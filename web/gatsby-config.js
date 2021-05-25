@@ -24,7 +24,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -56,6 +56,18 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `The Linden Project`,
+        short_name: `Linden Project`,
+        start_url: `/`,
+        background_color: `#9ba837`,
+        theme_color: `#9ba837`,
+        display: `standalone`,
+        icon: "src/images/icon.png",
       },
     },
 

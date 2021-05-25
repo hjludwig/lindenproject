@@ -27,7 +27,7 @@ const DonatePage = () => (
         primary
         target="_blank"
         as="a"
-        href="https://www.paypal.com/donate?token=wPDQoq3PbSAD5YriLFSwOxMyOX6alrN4JzTVY64pG8wQQztHMO0Bkb2KnrDMLWsLG2RENd23u6XziyKO"
+        href="https://www.paypal.com/biz/fund?id=YHC89ZMJXA5DC"
       >
         <FaPaypal /> Donate via Paypal
       </Button>
