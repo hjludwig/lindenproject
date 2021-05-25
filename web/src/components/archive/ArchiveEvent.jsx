@@ -7,7 +7,6 @@ import { breakpoints } from "../../styles/mixins";
 
 const StyledEvent = styled.div`
   width: 100%;
-
   margin-bottom: 8rem;
   box-shadow: 0 0 5px var(--grey-300);
   color: #222;
@@ -18,6 +17,9 @@ const StyledEvent = styled.div`
   h2 {
     font-size: 3rem;
     color: var(--grey-400);
+  }
+  ${breakpoints.tablet} {
+    margin-bottom: 4rem;
   }
 `;
 const Text = styled.div`
@@ -67,7 +69,7 @@ const Icon = styled.span`
 `;
 const Media = styled.div`
   border-right: 1px solid var(--grey-200);
-  height: 480px;
+  height: 340px;
 
   .gatsby-image-wrapper {
     width: 100%;
@@ -98,7 +100,6 @@ const TitleLink = styled(Link)`
   color: #222;
   text-decoration: none;
   position: relative;
-  z-index: 999;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-column-gap: 6rem;
