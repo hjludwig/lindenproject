@@ -9,7 +9,6 @@ import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 const StyledEvent = styled.div`
   width: 100%;
-  /* display: flex; */
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-column-gap: 6rem;
@@ -42,7 +41,6 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* margin-left: 6rem; */
   ${breakpoints.tablet} {
     padding: 0 5%;
     transform: translateY(-20rem);
