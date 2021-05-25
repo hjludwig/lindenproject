@@ -14,6 +14,9 @@ export const centeredSmall = css`
   max-width: 80ch;
   margin: 20rem auto;
   padding: 0 2.5%;
+  @media screen and (max-width: 550px) {
+    margin: 8rem auto;
+  }
 `;
 
 export const largeText = css`
