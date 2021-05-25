@@ -36,7 +36,7 @@ const Nav = styled.nav`
       margin-bottom: 0;
     }
     ${breakpoints.largeMobile} {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: calc(100vw - 3em);
@@ -68,12 +68,7 @@ const Nav = styled.nav`
   }
 `;
 
-const NavBar = ({ className, isHome, sticky }) => {
-  const [open, setOpen] = useState(false);
-  const toggle = () => {
-    setOpen(!open);
-  };
-
+const NavBar = ({ className, isHome, sticky, open, toggle }) => {
   return (
     <Nav className={className} onClick={toggle}>
       <ul className={open ? "show" : ""}>

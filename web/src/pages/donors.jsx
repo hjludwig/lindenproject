@@ -20,7 +20,6 @@ const Intro = styled.div`
   margin: 0 auto;
   max-width: 80ch;
   padding: 8rem 0;
-  border-bottom: 1px solid var(--grey-300);
 `;
 
 const DonorsPage = ({ data }) => {

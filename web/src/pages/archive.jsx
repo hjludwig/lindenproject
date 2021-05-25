@@ -21,24 +21,23 @@ const SeasonHeading = styled.h3`
   position: relative;
   text-align: center;
   margin-bottom: 8rem;
-  :before {
-    content: "";
-    display: block;
-    border: 1px solid var(--grey-300);
-    width: 40%;
-    position: absolute;
-    top: 2rem;
-    /* transform: translateY(3rem); */
+  &:before,
+  &:after {
+    @media screen and (min-width: 550px) {
+      content: "";
+      display: block;
+      border-top: 1px solid var(--grey-300);
+      position: absolute;
+      top: 2rem;
+
+      width: 30%;
+    }
+    @media screen and (min-width: 1100px) {
+      width: 40%;
+    }
   }
-  :after {
-    content: "";
-    display: block;
-    border: 1px solid var(--grey-300);
-    width: 40%;
-    position: absolute;
+  &:after {
     right: 0;
-    top: 2rem;
-    /* transform: translateY(3rem); */
   }
 `;
 

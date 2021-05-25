@@ -9,7 +9,8 @@ import { useWindowSize } from "../hooks/useWindowSize";
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  position: ${props => (props.sticky ? "sticky" : "static")};
+  position: ${props =>
+    props.sticky ? "sticky" : props.open ? "sticky" : "relative"};
   top: 0;
   left: 0;
   background: ${props =>
@@ -21,7 +22,7 @@ const HeaderWrapper = styled.div`
       ? "none"
       : "0 0 10px 0 rgba(24, 24, 27, 0.2)"};
   transform: ${props =>
-    props.offScreen ? "translateY(-120px)" : "translateY(0)"};
+    props.offScreen && !props.open ? "translateY(-120px)" : "translateY(0)"};
   transition: transform 0.2s ease;
 `;
 const StyledHeader = styled.header`
@@ -59,6 +60,10 @@ const MobileIcon = styled(Img)`
 const Header = ({ isHome }) => {
   const [sticky, setSticky] = useState(false);
   const [offScreen, setOffScreen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const toggle = () => {
+    setOpen(!open);
+  };
 
   useScrollPosition(
     ({ currPos }) => {
@@ -72,9 +77,6 @@ const Header = ({ isHome }) => {
       } else {
         setSticky(false);
       }
-      console.log(currPos.y);
-      console.log(`Am I sticky? ${sticky}`);
-      console.log(`Am I off screen? ${offScreen}`);
     },
     [sticky, offScreen],
     null,
@@ -108,7 +110,12 @@ const Header = ({ isHome }) => {
   const { name, logo, icon } = data.org.nodes[0];
 
   return (
-    <HeaderWrapper isHome={isHome} sticky={sticky} offScreen={offScreen}>
+    <HeaderWrapper
+      isHome={isHome}
+      sticky={sticky}
+      offScreen={offScreen}
+      open={open}
+    >
       <StyledHeader>
         <LogoWrapper isHome={isHome} sticky={sticky}>
           <Link to="/">
@@ -117,7 +124,7 @@ const Header = ({ isHome }) => {
             <MobileIcon fluid={icon.asset.fluid} alt={name} />
           </Link>
         </LogoWrapper>
-        <NavBar isHome={isHome} sticky={sticky} />
+        <NavBar isHome={isHome} sticky={sticky} toggle={toggle} open={open} />
       </StyledHeader>
     </HeaderWrapper>
   );
