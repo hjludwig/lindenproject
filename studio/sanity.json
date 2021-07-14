@@ -1,34 +1,33 @@
 {
-  "root": true,
-  "project": {
-    "name": "Linden Project"
-  },
-  "api": {
-    "projectId": "vlx0xi6k",
-    "dataset": "production"
-  },
-  "plugins": [
-    "@sanity/base",
-    "@sanity/components",
-    "@sanity/default-layout",
-    "@sanity/default-login",
-    "@sanity/desk-tool"
-  ],
-  "env": {
-    "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
-    }
-  },
-  "parts": [
-    {
-      "name": "part:@sanity/base/schema",
-      "path": "./schemas/schema"
+    "root": true,
+    "project": {
+        "name": "Linden Project",
+        "basePath": "/studio"
     },
-    {
-      "name": "part:@sanity/desk-tool/structure",
-      "path": "./deskStructure.js"
-    }
-  ]
+    "api": {
+        "projectId": "vlx0xi6k",
+        "dataset": "production"
+    },
+    "plugins": [
+        "@sanity/base",
+        "@sanity/components",
+        "@sanity/default-layout",
+        "@sanity/default-login",
+        "@sanity/desk-tool"
+    ],
+    "env": {
+        "development": {
+            "plugins": ["@sanity/vision"]
+        }
+    },
+    "parts": [
+        {
+            "name": "part:@sanity/base/schema",
+            "path": "./schemas/schema"
+        },
+        {
+            "name": "part:@sanity/desk-tool/structure",
+            "path": "./deskStructure.js"
+        }
+    ]
 }
