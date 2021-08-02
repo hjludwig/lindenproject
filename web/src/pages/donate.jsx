@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 import { FaPaypal } from "react-icons/fa";
 import { Button } from "../components/Button";

@@ -5,10 +5,10 @@ import SEO from "../components/Seo";
 import BlockContent from "@sanity/block-content-to-react";
 import styled from "styled-components";
 import { centeredSmall, largeText } from "../styles/mixins";
+import BoardMember from "../components/aboutPage/BoardMember";
 
 const Wrapper = styled.section`
-  ${centeredSmall}/* max-width: 80ch;
-  padding: 20rem 0; */
+  ${centeredSmall}
 `;
 const Heading = styled.h1`
   color: var(--lp-green);
@@ -18,6 +18,7 @@ const Heading = styled.h1`
 const MissonStatement = styled.div`
   ${largeText}
   text-align: center;
+
   :after {
     content: "";
     display: block;
@@ -33,6 +34,7 @@ const AboutPage = ({ data }) => {
     descriptionShort,
     _rawDescriptionLong,
   } = data.sanityOrganization;
+  console.log(data);
   return (
     <Layout>
       <SEO title="About" />
@@ -43,6 +45,10 @@ const AboutPage = ({ data }) => {
           <p>{descriptionShort}</p>
         </MissonStatement>
         <BlockContent blocks={_rawDescriptionLong} />
+        <h2>Our Board of Directors</h2>
+        {data.boardMembers.nodes.map(person => (
+          <BoardMember person={person} />
+        ))}
       </Wrapper>
     </Layout>
   );
@@ -52,6 +58,21 @@ export default AboutPage;
 
 export const query = graphql`
   query MyQuery {
+    boardMembers: allSanityPerson(filter: { role: { eq: "boardMember" } }) {
+      nodes {
+        name
+        title
+        headshot {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
+        _id
+        bio
+      }
+    }
     sanityOrganization {
       missionStatement
       descriptionShort

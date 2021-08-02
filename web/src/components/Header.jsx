@@ -5,7 +5,6 @@ import styled from "styled-components";
 import NavBar from "./NavBar";
 import { breakpoints } from "../styles/mixins";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import { useWindowSize } from "../hooks/useWindowSize";
 
 const HeaderWrapper = styled.div`
   width: 100%;

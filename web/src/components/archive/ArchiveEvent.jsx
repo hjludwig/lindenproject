@@ -10,6 +10,13 @@ const StyledEvent = styled.div`
   margin-bottom: 8rem;
   box-shadow: 0 0 5px var(--grey-300);
   color: #222;
+  transition: box-shadow 0.25s ease;
+  &:hover {
+    box-shadow: 0 0 20px var(--grey-300);
+    > * {
+      color: inherit;
+    }
+  }
   h1 {
     font-size: 4.2rem;
     margin-bottom: 0;
@@ -61,12 +68,7 @@ const Details = styled.div`
     }
   }
 `;
-const Icon = styled.span`
-  color: var(--lp-green);
-  margin-right: 0.25em;
-  position: relative;
-  top: 2px;
-`;
+
 const Media = styled.div`
   border-right: 1px solid var(--grey-200);
   height: 340px;

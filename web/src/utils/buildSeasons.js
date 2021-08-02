@@ -9,8 +9,8 @@ const buildSeasons = events => {
       return newEvent;
     }
   };
-  //  Create a new array of events with a season property and assign the appropriate season
 
+  //  Create a new array of events with a season property and assign the appropriate season
   const eventsWithSeasons = events.map(event => assignSeason(event));
 
   // Group the new events array into an object by season

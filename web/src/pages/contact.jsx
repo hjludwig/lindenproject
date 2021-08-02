@@ -4,7 +4,7 @@ import { Button } from "../components/Button";
 
 import Layout from "../components/Layout";
 import SEO from "../components/Seo";
-import { centered, centeredSmall } from "../styles/mixins";
+import { centeredSmall } from "../styles/mixins";
 const Wrapper = styled.div`
   ${centeredSmall}
 `;

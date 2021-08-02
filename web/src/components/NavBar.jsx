@@ -1,6 +1,6 @@
 import { Link } from "gatsby";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import React, { useState } from "react";
+import React from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import styled from "styled-components";
 import { breakpoints } from "../styles/mixins";
@@ -72,22 +72,22 @@ const NavBar = ({ className, isHome, sticky, open, toggle }) => {
   return (
     <Nav className={className} onClick={toggle}>
       <ul className={open ? "show" : ""}>
-        <li onClick={toggle}>
+        <li>
           <AnchorLink to="/#concerts" title="Concerts" />
         </li>
-        <li onClick={toggle}>
+        <li>
           <Link to="/about">About</Link>
         </li>
-        <li onClick={toggle}>
+        <li>
           <Link to="/contact">Contact</Link>
         </li>
-        <li onClick={toggle}>
+        <li>
           <DonateButton className="button" as={Link} to="/donate" primary>
             Donate
           </DonateButton>
         </li>
       </ul>
-      <MenuButton onClick={toggle} isHome={isHome} sticky={sticky}>
+      <MenuButton isHome={isHome} sticky={sticky}>
         {open ? <FaTimes /> : <FaBars />}
       </MenuButton>
     </Nav>

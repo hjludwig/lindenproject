@@ -53,10 +53,17 @@ const Events = () => {
     }
   `);
 
+  // What season am I in today?
   const currentSeason = getSeason(new Date());
 
+  // Build seasons from all events
   const seasons = buildSeasons(data.allSanityEvent.nodes);
-  const events = seasons[currentSeason];
+
+  // Hack to address Synesthesia concert being postponed until next season
+  const missingConcert = seasons["2021/2022"][1];
+
+  // Get just the current season
+  const events = [missingConcert, ...seasons[currentSeason]];
 
   return (
     <StyledEvents id="concerts">
